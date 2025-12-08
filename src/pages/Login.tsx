@@ -7,27 +7,63 @@ import { Brain, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { login, loginWithGoogle } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate successful login
-    toast({
-      title: "Welcome Back!",
-      description: "Successfully signed in. Redirecting to dashboard...",
-    });
-    
-    setTimeout(() => {
+    try {
+      setLoading(true);
+      await login(formData.email, formData.password);
+      
+      toast({
+        title: "Welcome Back!",
+        description: "Successfully signed in. Redirecting to dashboard...",
+      });
+      
       navigate("/dashboard");
-    }, 1000);
+    } catch (error: any) {
+      toast({
+        title: "Login Failed",
+        description: error.message || "Failed to sign in. Please check your credentials.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  const handleGoogleLogin = async () => {
+    try {
+      setLoading(true);
+      await loginWithGoogle();
+      
+      toast({
+        title: "Welcome!",
+        description: "Successfully signed in with Google. Redirecting to dashboard...",
+      });
+      
+      navigate("/dashboard");
+    } catch (error: any) {
+      toast({
+        title: "Login Failed",
+        description: error.message || "Failed to sign in with Google.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,12 +124,33 @@ const Login = () => {
                 className="w-full" 
                 variant="hero"
                 size="lg"
+                disabled={loading}
               >
-                Sign In <ArrowRight className="ml-2 h-4 w-4" />
+                {loading ? "Signing in..." : "Sign In"} {!loading && <ArrowRight className="ml-2 h-4 w-4" />}
               </Button>
             </form>
             
-            <div className="mt-6 text-center">
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+              </div>
+            </div>
+            
+            <Button 
+              type="button" 
+              variant="outline" 
+              className="w-full flex items-center justify-center gap-2 mb-6"
+              onClick={handleGoogleLogin}
+              disabled={loading}
+            >
+              <FaGoogle className="h-4 w-4" />
+              Google
+            </Button>
+            
+            <div className="text-center">
               <p className="text-sm text-muted-foreground">
                 Don't have an account?{" "}
                 <Link to="/signup" className="text-primary hover:underline font-medium">

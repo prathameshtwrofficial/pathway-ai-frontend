@@ -7,6 +7,8 @@ import { Brain, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import { FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +17,12 @@ const SignUp = () => {
     password: "",
     confirmPassword: ""
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { signup, loginWithGoogle } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (formData.password !== formData.confirmPassword) {
@@ -30,15 +34,47 @@ const SignUp = () => {
       return;
     }
 
-    // Simulate successful signup
-    toast({
-      title: "Account Created!",
-      description: "Welcome to AI Career Compass. Redirecting to dashboard...",
-    });
-    
-    setTimeout(() => {
+    try {
+      setLoading(true);
+      await signup(formData.email, formData.password, formData.name);
+      
+      toast({
+        title: "Account Created!",
+        description: "Welcome to AI Career Compass. Redirecting to dashboard...",
+      });
+      
       navigate("/dashboard");
-    }, 1000);
+    } catch (error: any) {
+      toast({
+        title: "Signup Failed",
+        description: error.message || "Failed to create account. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  const handleGoogleSignup = async () => {
+    try {
+      setLoading(true);
+      await loginWithGoogle();
+      
+      toast({
+        title: "Account Created!",
+        description: "Successfully signed up with Google. Redirecting to dashboard...",
+      });
+      
+      navigate("/dashboard");
+    } catch (error: any) {
+      toast({
+        title: "Signup Failed",
+        description: error.message || "Failed to sign up with Google.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,12 +163,33 @@ const SignUp = () => {
                 className="w-full" 
                 variant="hero"
                 size="lg"
+                disabled={loading}
               >
-                Create Account <ArrowRight className="ml-2 h-4 w-4" />
+                {loading ? "Creating Account..." : "Create Account"} {!loading && <ArrowRight className="ml-2 h-4 w-4" />}
               </Button>
             </form>
             
-            <div className="mt-6 text-center">
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+              </div>
+            </div>
+            
+            <Button 
+              type="button" 
+              variant="outline" 
+              className="w-full flex items-center justify-center gap-2 mb-6"
+              onClick={handleGoogleSignup}
+              disabled={loading}
+            >
+              <FaGoogle className="h-4 w-4" />
+              Google
+            </Button>
+            
+            <div className="text-center">
               <p className="text-sm text-muted-foreground">
                 Already have an account?{" "}
                 <Link to="/login" className="text-primary hover:underline font-medium">

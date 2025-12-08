@@ -3,6 +3,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Brain, Target, TrendingUp, Users, Zap, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
+import { useState, useEffect } from "react";
+
+const Typewriter = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 100); // Speed of typing
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text]);
+
+  return <span>{displayText}<span className="animate-pulse">|</span></span>;
+};
 
 const Landing = () => {
   return (
@@ -15,7 +33,7 @@ const Landing = () => {
         <div className="relative container mx-auto px-4">
           <div className="text-center text-white">
             <h1 className="mb-6 text-4xl font-bold lg:text-6xl xl:text-7xl">
-              AI Career Compass
+              <Typewriter text="AI Career Compass" />
             </h1>
             <p className="mb-4 text-xl lg:text-2xl opacity-90">
               Your Intelligent Career Guidance System
@@ -49,7 +67,7 @@ const Landing = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background animate-fade-in animate-delay-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-foreground">
@@ -138,7 +156,7 @@ const Landing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary">
+      <section className="py-20 bg-gradient-primary animate-fade-in animate-delay-1000">
         <div className="container mx-auto px-4 text-center">
           <div className="text-white">
             <h2 className="text-3xl font-bold mb-4">

@@ -75,28 +75,28 @@ export function SkillGapAnalysis() {
   const overallProgress = Math.round(allSkills.reduce((acc, skill) => acc + (skill.current / skill.required * 100), 0) / allSkills.length);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8 px-2 md:px-0">
       <div>
-        <h1 className="text-3xl font-bold text-foreground mb-2">Skill Gap Analysis</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Skill Gap Analysis</h1>
+        <p className="text-sm md:text-base text-muted-foreground">
           Identify skill gaps and get personalized recommendations to advance your career.
         </p>
       </div>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <Card className="bg-gradient-card border-0 shadow-lg">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center space-x-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
+            <CardTitle className="text-base md:text-lg flex items-center space-x-2">
+              <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               <span>Overall Progress</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-2xl font-bold text-primary">{overallProgress}%</span>
-                <span className="text-sm text-muted-foreground">Complete</span>
+                <span className="text-xl md:text-2xl font-bold text-primary">{overallProgress}%</span>
+                <span className="text-xs md:text-sm text-muted-foreground">Complete</span>
               </div>
               <Progress value={overallProgress} className="h-2" />
             </div>
@@ -105,76 +105,76 @@ export function SkillGapAnalysis() {
 
         <Card className="bg-gradient-card border-0 shadow-lg">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center space-x-2">
-              <AlertTriangle className="h-5 w-5 text-destructive" />
+            <CardTitle className="text-base md:text-lg flex items-center space-x-2">
+              <AlertTriangle className="h-4 w-4 md:h-5 md:w-5 text-destructive" />
               <span>Critical Skills</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-destructive">{criticalSkills.length}</div>
-            <p className="text-sm text-muted-foreground">Need immediate attention</p>
+            <div className="text-xl md:text-2xl font-bold text-destructive">{criticalSkills.length}</div>
+            <p className="text-xs md:text-sm text-muted-foreground">Need immediate attention</p>
           </CardContent>
         </Card>
 
         <Card className="bg-gradient-card border-0 shadow-lg">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center space-x-2">
-              <Clock className="h-5 w-5 text-warning" />
+            <CardTitle className="text-base md:text-lg flex items-center space-x-2">
+              <Clock className="h-4 w-4 md:h-5 md:w-5 text-warning" />
               <span>To Improve</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-warning">{needsImprovementSkills.length}</div>
-            <p className="text-sm text-muted-foreground">Skills to develop</p>
+            <div className="text-xl md:text-2xl font-bold text-warning">{needsImprovementSkills.length}</div>
+            <p className="text-xs md:text-sm text-muted-foreground">Skills to develop</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Skill Categories */}
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {skillCategories.map((category) => (
           <Card key={category.category} className="bg-gradient-card border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-xl">{category.category}</CardTitle>
-              <CardDescription>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-lg md:text-xl">{category.category}</CardTitle>
+              <CardDescription className="text-sm">
                 Skills assessment for {category.category.toLowerCase()}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
+            <CardContent className="pt-0">
+              <div className="space-y-3 md:space-y-4">
                 {category.skills.map((skill) => {
                   const StatusIcon = getStatusIcon(skill.status);
                   const statusBadge = getStatusBadge(skill.status);
                   const gap = skill.required - skill.current;
-                  
+
                   return (
-                    <div key={skill.name} className="space-y-3 p-4 rounded-lg bg-muted/30">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <StatusIcon className={`h-5 w-5 ${getStatusColor(skill.status)}`} />
-                          <div>
-                            <h4 className="font-medium">{skill.name}</h4>
-                            <p className="text-sm text-muted-foreground">
+                    <div key={skill.name} className="space-y-3 p-3 md:p-4 rounded-lg bg-muted/30">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div className="flex items-center space-x-3 min-w-0 flex-1">
+                          <StatusIcon className={`h-4 w-4 md:h-5 md:w-5 flex-shrink-0 ${getStatusColor(skill.status)}`} />
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-sm md:text-base truncate">{skill.name}</h4>
+                            <p className="text-xs md:text-sm text-muted-foreground">
                               Current: {skill.current}% | Required: {skill.required}%
                             </p>
                           </div>
                         </div>
-                        <Badge className={statusBadge.className}>
+                        <Badge className={`${statusBadge.className} text-xs flex-shrink-0`}>
                           {statusBadge.text}
                         </Badge>
                       </div>
-                      
+
                       <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-xs md:text-sm">
                           <span>Progress</span>
                           <span>{Math.round((skill.current / skill.required) * 100)}%</span>
                         </div>
-                        <Progress 
-                          value={(skill.current / skill.required) * 100} 
-                          className="h-2" 
+                        <Progress
+                          value={(skill.current / skill.required) * 100}
+                          className="h-2"
                         />
                         {gap > 0 && (
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-xs md:text-sm text-muted-foreground">
                             Gap: {gap} points to reach target level
                           </p>
                         )}
@@ -190,39 +190,39 @@ export function SkillGapAnalysis() {
 
       {/* Learning Recommendations */}
       <Card className="bg-gradient-primary text-white border-0">
-        <CardContent className="p-6">
-          <div className="space-y-4">
+        <CardContent className="p-4 md:p-6">
+          <div className="space-y-3 md:space-y-4">
             <div className="flex items-center space-x-2">
-              <BookOpen className="h-6 w-6" />
-              <h3 className="text-xl font-semibold">Recommended Learning Path</h3>
+              <BookOpen className="h-5 w-5 md:h-6 md:w-6" />
+              <h3 className="text-lg md:text-xl font-semibold">Recommended Learning Path</h3>
             </div>
-            <p className="opacity-90">
+            <p className="opacity-90 text-sm md:text-base">
               Based on your skill gaps, we recommend focusing on these areas first:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               <div className="space-y-2">
-                <h4 className="font-medium">Priority 1: Critical Skills</h4>
-                <ul className="space-y-1 text-sm opacity-90">
+                <h4 className="font-medium text-sm md:text-base">Priority 1: Critical Skills</h4>
+                <ul className="space-y-1 text-xs md:text-sm opacity-90">
                   {criticalSkills.slice(0, 3).map(skill => (
                     <li key={skill.name}>• {skill.name}</li>
                   ))}
                 </ul>
               </div>
               <div className="space-y-2">
-                <h4 className="font-medium">Priority 2: Improvement Areas</h4>
-                <ul className="space-y-1 text-sm opacity-90">
+                <h4 className="font-medium text-sm md:text-base">Priority 2: Improvement Areas</h4>
+                <ul className="space-y-1 text-xs md:text-sm opacity-90">
                   {needsImprovementSkills.slice(0, 3).map(skill => (
                     <li key={skill.name}>• {skill.name}</li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="flex space-x-3 pt-4">
-              <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+            <div className="flex flex-col sm:flex-row gap-3 pt-3 md:pt-4">
+              <Button variant="outline" size="sm" className="bg-white/10 border-white/30 text-white hover:bg-white/20 flex-1">
                 <BookOpen className="mr-2 h-4 w-4" />
                 Create Learning Plan
               </Button>
-              <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+              <Button variant="outline" size="sm" className="bg-white/10 border-white/30 text-white hover:bg-white/20 flex-1">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Find Courses
               </Button>
