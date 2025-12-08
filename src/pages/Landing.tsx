@@ -16,6 +16,13 @@ const Typewriter = ({ text }: { text: string }) => {
         setCurrentIndex((prev) => prev + 1);
       }, 100); // Speed of typing
       return () => clearTimeout(timeout);
+    } else {
+      // Pause at the end, then reset
+      const resetTimeout = setTimeout(() => {
+        setDisplayText("");
+        setCurrentIndex(0);
+      }, 2000); // Pause for 2 seconds before restarting
+      return () => clearTimeout(resetTimeout);
     }
   }, [currentIndex, text]);
 
@@ -80,9 +87,9 @@ const Landing = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-gradient-card border-0 shadow-lg hover:shadow-xl transition-smooth">
+            <Card className="bg-card/50 backdrop-blur-sm border border-border/20 shadow-sm hover:shadow-lg hover:bg-card/80 transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center mb-4">
                   <Brain className="h-6 w-6 text-primary" />
                 </div>
                 <CardTitle>AI Career Analysis</CardTitle>
@@ -92,9 +99,9 @@ const Landing = () => {
               </CardHeader>
             </Card>
 
-            <Card className="bg-gradient-card border-0 shadow-lg hover:shadow-xl transition-smooth">
+            <Card className="bg-card/50 backdrop-blur-sm border border-border/20 shadow-sm hover:shadow-lg hover:bg-card/80 transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-xl flex items-center justify-center mb-4">
                   <Target className="h-6 w-6 text-secondary" />
                 </div>
                 <CardTitle>Skill Gap Analysis</CardTitle>
@@ -104,9 +111,9 @@ const Landing = () => {
               </CardHeader>
             </Card>
 
-            <Card className="bg-gradient-card border-0 shadow-lg hover:shadow-xl transition-smooth">
+            <Card className="bg-card/50 backdrop-blur-sm border border-border/20 shadow-sm hover:shadow-lg hover:bg-card/80 transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-warning/20 rounded-xl flex items-center justify-center mb-4">
                   <TrendingUp className="h-6 w-6 text-accent" />
                 </div>
                 <CardTitle>Personalized Roadmap</CardTitle>
