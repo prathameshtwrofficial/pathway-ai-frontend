@@ -7,6 +7,16 @@
 
 AI Career Compass is a cutting-edge web application that leverages artificial intelligence and machine learning to provide personalized career guidance. Our platform analyzes user skills, interests, and market trends to help individuals discover their optimal career paths and achieve professional success.
 
+## 🌐 Live Demo
+
+Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](https://pathway-ai-frontend.vercel.app/)
+
+## 👥 Team
+
+- **Prathamesh Tiwari** - Project Lead & Full-Stack Developer
+- **Kunal Mishra** - Frontend Developer & UI/UX Designer
+- **Sumit Mishra** - Backend Developer & AI/ML Engineer
+
 ## ✨ Features
 
 ### 🤖 AI-Powered Career Analysis
@@ -137,16 +147,6 @@ AI Career Compass is a cutting-edge web application that leverages artificial in
 4. **Explore Recommendations** - View personalized career suggestions
 5. **Follow Your Roadmap** - Access step-by-step career development plans
 6. **Practice Interviews** - Use our AI coach for interview preparation
-
-## 🌐 Live Demo
-
-Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](https://pathway-ai-frontend.vercel.app/)
-
-## 👥 Team
-
-- **Prathamesh Tiwari**
-- **Kunal Mishra**
-- **Sumit Mishra**
 
 ## 🤝 Contributing
 
