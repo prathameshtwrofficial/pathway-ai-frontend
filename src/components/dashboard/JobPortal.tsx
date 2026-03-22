@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Briefcase, MapPin, DollarSign, Calendar, Search, Filter } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 interface Job {
   id: string;
@@ -67,21 +67,18 @@ export function JobPortal() {
   const searchJobs = async () => {
     setLoading(true);
     try {
-      // In a real implementation, this would call the backend API
-      // const response = await fetch(`/api/jobs?query=${searchQuery}&location=${location}`);
-      // const data = await response.json();
-      // setJobs(data.jobs);
-      
-      // For now, simulate API call with mock data
-      setTimeout(() => {
-        const filteredJobs = mockJobs.filter(job => 
-          job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          job.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          job.description.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setJobs(filteredJobs);
-        setLoading(false);
-      }, 1000);
+      const params = new URLSearchParams();
+      if (searchQuery) params.append('query', searchQuery);
+      if (location) params.append('location', location);
+
+      const response = await fetch(`/api/jobs?${params.toString()}`);
+      const data = await response.json();
+
+      if (response.ok) {
+        setJobs(data.jobs);
+      } else {
+        throw new Error(data.error || 'Failed to fetch jobs');
+      }
     } catch (error) {
       console.error("Error searching jobs:", error);
       toast({
@@ -89,6 +86,13 @@ export function JobPortal() {
         description: "Failed to search jobs. Please try again.",
         variant: "destructive",
       });
+      // Fallback to mock data
+      setJobs(mockJobs.filter(job =>
+        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.description.toLowerCase().includes(searchQuery.toLowerCase())
+      ));
+    } finally {
       setLoading(false);
     }
   };

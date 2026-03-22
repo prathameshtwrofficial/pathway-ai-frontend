@@ -1,0 +1,112 @@
+{
+  "software-engineer": {
+    "technical": [
+      "Explain the difference between synchronous and asynchronous programming.",
+      "How would you optimize a slow SQL query?",
+      "Describe your experience with version control systems like Git.",
+      "How do you handle memory management in your applications?",
+      "Explain the concept of RESTful APIs and when you would use them.",
+      "How do you approach debugging a complex issue?",
+      "Describe your experience with testing frameworks.",
+      "How do you ensure code quality and maintainability?"
+    ],
+    "behavioral": [
+      "Tell me about a time when you had to learn a new technology quickly.",
+      "Describe a challenging project you worked on and how you overcame obstacles.",
+      "How do you handle conflicting priorities and deadlines?",
+      "Tell me about a time you received constructive criticism and how you responded.",
+      "Describe your approach to collaborating with cross-functional teams.",
+      "How do you stay updated with industry trends and best practices?",
+      "Tell me about a time you had to explain a complex technical concept to a non-technical person.",
+      "How do you handle working under pressure?"
+    ]
+  },
+  "data-scientist": {
+    "technical": [
+      "Explain the difference between supervised and unsupervised learning.",
+      "How would you handle missing data in a dataset?",
+      "Describe your experience with Python data science libraries.",
+      "How do you evaluate the performance of a machine learning model?",
+      "Explain the bias-variance tradeoff.",
+      "How do you approach feature selection and engineering?",
+      "Describe your experience with data visualization tools.",
+      "How do you ensure your models are interpretable?"
+    ],
+    "behavioral": [
+      "Tell me about a time you had to present complex data insights to stakeholders.",
+      "Describe a project where you had to clean and prepare messy data.",
+      "How do you validate your findings and ensure they're reliable?",
+      "Tell me about a time you had to learn a new analytical technique.",
+      "How do you handle uncertainty in data analysis?",
+      "Describe your approach to collaborating with business teams.",
+      "How do you stay current with data science methodologies?",
+      "Tell me about a time you had to defend your analytical approach."
+    ]
+  },
+  "product-manager": {
+    "technical": [
+      "How do you prioritize features for a product roadmap?",
+      "Describe your experience with agile development methodologies.",
+      "How do you measure product success and KPIs?",
+      "Explain your approach to user research and validation.",
+      "How do you handle technical debt in product development?",
+      "Describe your experience with A/B testing.",
+      "How do you balance short-term goals with long-term vision?",
+      "Explain your approach to market analysis and competitive research."
+    ],
+    "behavioral": [
+      "Tell me about a time you had to say no to a feature request.",
+      "Describe a product launch you were involved in and what you learned.",
+      "How do you handle conflicting stakeholder requirements?",
+      "Tell me about a time you had to pivot a product strategy.",
+      "Describe your approach to building relationships with engineering teams.",
+      "How do you gather and incorporate user feedback?",
+      "Tell me about a time you failed and how you recovered.",
+      "How do you motivate and lead cross-functional teams?"
+    ]
+  },
+  "designer": {
+    "technical": [
+      "Describe your design process from concept to implementation.",
+      "How do you ensure your designs are accessible?",
+      "Explain your experience with design systems and component libraries.",
+      "How do you approach user research and usability testing?",
+      "Describe your experience with prototyping tools.",
+      "How do you balance aesthetics with functionality?",
+      "Explain your approach to responsive design.",
+      "How do you incorporate user feedback into your designs?"
+    ],
+    "behavioral": [
+      "Tell me about a time you had to defend your design decisions.",
+      "Describe a project where you collaborated with developers.",
+      "How do you handle design criticism?",
+      "Tell me about a time you had to iterate on a design based on user feedback.",
+      "Describe your approach to staying inspired and creative.",
+      "How do you balance business goals with user needs?",
+      "Tell me about a challenging design problem you solved.",
+      "How do you ensure design consistency across products?"
+    ]
+  },
+  "marketing": {
+    "technical": [
+      "How do you measure the success of a marketing campaign?",
+      "Describe your experience with digital marketing tools and platforms.",
+      "How do you approach content strategy and creation?",
+      "Explain your experience with SEO and SEM.",
+      "How do you analyze marketing data and metrics?",
+      "Describe your approach to social media marketing.",
+      "How do you optimize conversion rates?",
+      "Explain your experience with marketing automation."
+    ],
+    "behavioral": [
+      "Tell me about a successful marketing campaign you led.",
+      "Describe a time you had to adapt to changing market conditions.",
+      "How do you collaborate with sales and product teams?",
+      "Tell me about a time you had to manage a marketing budget.",
+      "Describe your approach to crisis communication.",
+      "How do you stay updated with marketing trends?",
+      "Tell me about a time you failed to meet marketing goals and what you learned.",
+      "How do you prioritize multiple marketing initiatives?"
+    ]
+  }
+}

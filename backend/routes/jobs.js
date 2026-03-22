@@ -70,67 +70,90 @@ router.get('/insights', async (req, res) => {
   }
 });
 
-// Helper function to search jobs using external APIs
+// Helper function to search jobs using Adzuna API
 async function searchJobs(query, location = '') {
   try {
-    // For demonstration, we'll use a mock implementation
-    // In a real app, you would integrate with job search APIs like LinkedIn, Indeed, etc.
-    
-    // Mock data for demonstration
-    const mockJobs = [
-      {
-        id: 'job1',
-        title: `${query} Developer`,
-        company: 'Tech Solutions Inc.',
-        location: location || 'Remote',
-        description: `We're looking for a talented ${query} developer to join our team.`,
-        salary: '$80,000 - $120,000',
-        url: 'https://example.com/job1',
-        postedDate: new Date(Date.now() - 86400000).toISOString() // 1 day ago
-      },
-      {
-        id: 'job2',
-        title: `Senior ${query} Engineer`,
-        company: 'Innovative Systems',
-        location: location || 'New York, NY',
-        description: `Senior ${query} engineer position for experienced professionals.`,
-        salary: '$120,000 - $150,000',
-        url: 'https://example.com/job2',
-        postedDate: new Date(Date.now() - 172800000).toISOString() // 2 days ago
-      },
-      {
-        id: 'job3',
-        title: `${query} Analyst`,
-        company: 'Data Insights Corp',
-        location: location || 'San Francisco, CA',
-        description: `Join our team as a ${query} analyst and help drive business decisions.`,
-        salary: '$90,000 - $110,000',
-        url: 'https://example.com/job3',
-        postedDate: new Date(Date.now() - 259200000).toISOString() // 3 days ago
-      }
-    ];
-    
-    return mockJobs;
-    
-    // Example of real API integration (commented out)
-    /*
-    const response = await axios.get('https://api.jobsearch.com/v1/search', {
+    // Use Adzuna API (free tier available)
+    const appId = process.env.ADZUNA_APP_ID;
+    const appKey = process.env.ADZUNA_APP_KEY;
+
+    if (!appId || !appKey) {
+      console.warn('Adzuna API credentials not found, falling back to mock data');
+      return getMockJobs(query, location);
+    }
+
+    const country = 'us'; // Default to US jobs
+    const url = `https://api.adzuna.com/v1/api/jobs/${country}/search/1`;
+
+    const response = await axios.get(url, {
       params: {
-        query,
-        location,
-        limit: 10
+        app_id: appId,
+        app_key: appKey,
+        what: query,
+        where: location,
+        results_per_page: 10
       },
       headers: {
-        'Authorization': `Bearer ${process.env.JOBS_API_KEY}`
+        'Content-Type': 'application/json'
       }
     });
-    
-    return response.data.jobs;
-    */
+
+    // Transform Adzuna response to our format
+    const jobs = response.data.results.map(job => ({
+      id: job.id.toString(),
+      title: job.title,
+      company: job.company.display_name,
+      location: job.location.display_name,
+      description: job.description,
+      salary: job.salary_min && job.salary_max ?
+        `$${job.salary_min} - $${job.salary_max}` :
+        job.salary_is_predicted ? 'Salary not specified' : 'Salary not disclosed',
+      url: job.redirect_url,
+      postedDate: job.created
+    }));
+
+    return jobs;
   } catch (error) {
-    console.error('Error searching jobs:', error);
-    return [];
+    console.error('Error searching jobs with Adzuna:', error);
+    // Fallback to mock data
+    return getMockJobs(query, location);
   }
+}
+
+// Fallback mock data
+function getMockJobs(query, location = '') {
+  return [
+    {
+      id: 'mock1',
+      title: `${query} Developer`,
+      company: 'Tech Solutions Inc.',
+      location: location || 'Remote',
+      description: `We're looking for a talented ${query} developer to join our team.`,
+      salary: '$80,000 - $120,000',
+      url: 'https://example.com/job1',
+      postedDate: new Date(Date.now() - 86400000).toISOString()
+    },
+    {
+      id: 'mock2',
+      title: `Senior ${query} Engineer`,
+      company: 'Innovative Systems',
+      location: location || 'New York, NY',
+      description: `Senior ${query} engineer position for experienced professionals.`,
+      salary: '$120,000 - $150,000',
+      url: 'https://example.com/job2',
+      postedDate: new Date(Date.now() - 172800000).toISOString()
+    },
+    {
+      id: 'mock3',
+      title: `${query} Analyst`,
+      company: 'Data Insights Corp',
+      location: location || 'San Francisco, CA',
+      description: `Join our team as a ${query} analyst and help drive business decisions.`,
+      salary: '$90,000 - $110,000',
+      url: 'https://example.com/job3',
+      postedDate: new Date(Date.now() - 259200000).toISOString()
+    }
+  ];
 }
 
 module.exports = router;

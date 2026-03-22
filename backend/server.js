@@ -13,6 +13,9 @@ const careerRoutes = require('./routes/careers');
 const jobsRoutes = require('./routes/jobs');
 const resourcesRoutes = require('./routes/resources');
 const reportsRoutes = require('./routes/reports');
+const mlRoutes = require('./routes/ml');
+const interviewRoutes = require('./routes/interviews');
+const resumeRoutes = require('./routes/resume');
 
 // Middleware
 app.use(cors());
@@ -25,6 +28,9 @@ app.use('/api/careers', careerRoutes);
 app.use('/api/jobs', jobsRoutes);
 app.use('/api/resources', resourcesRoutes);
 app.use('/api/reports', reportsRoutes);
+app.use('/api/ml', mlRoutes);
+app.use('/api/interviews', interviewRoutes);
+app.use('/api/resume', resumeRoutes);
 
 // Test API route
 app.get("/api/hello", (req, res) => {

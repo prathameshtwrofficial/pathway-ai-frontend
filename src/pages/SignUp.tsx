@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Brain, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { FaGoogle } from "react-icons/fa";
 

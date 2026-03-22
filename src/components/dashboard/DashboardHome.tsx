@@ -11,7 +11,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Loader2, ArrowRight, Target, BookOpen } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 export function DashboardHome() {
   const { currentUser, userData, loading } = useAuth();

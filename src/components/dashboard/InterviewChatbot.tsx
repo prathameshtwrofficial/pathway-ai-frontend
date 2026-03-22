@@ -3,11 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { 
-  MessageCircle, 
-  Send, 
-  Bot, 
-  User, 
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  MessageCircle,
+  Send,
+  Bot,
+  User,
   Mic,
   MicOff,
   Play,
@@ -15,7 +16,7 @@ import {
   RotateCcw,
   Star
 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 interface Message {
   id: string;
@@ -54,6 +55,8 @@ export function InterviewChatbot() {
   const [questionsAsked, setQuestionsAsked] = useState(0);
   const [interviewMode, setInterviewMode] = useState<"chat" | "mock" | "practice">("chat");
   const [isRecording, setIsRecording] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
+  const [availableRoles, setAvailableRoles] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -64,6 +67,23 @@ export function InterviewChatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    // Fetch available roles
+    const fetchRoles = async () => {
+      try {
+        const response = await fetch('/api/interviews/roles');
+        if (response.ok) {
+          const data = await response.json();
+          setAvailableRoles(data.roles);
+        }
+      } catch (error) {
+        console.error('Error fetching roles:', error);
+      }
+    };
+
+    fetchRoles();
+  }, []);
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
@@ -137,20 +157,50 @@ export function InterviewChatbot() {
     };
   };
 
-  const startMockInterview = () => {
+  const startMockInterview = async () => {
+    if (!selectedRole) {
+      toast({
+        title: "Role Required",
+        description: "Please select a role to practice interviews for.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setInterviewMode("mock");
     setSessionScore(0);
     setQuestionsAsked(0);
-    
-    const startMessage: Message = {
-      id: Date.now().toString(),
-      content: "Great! Let's start your mock interview. I'll ask you questions and provide feedback on your responses. Remember to use the STAR method (Situation, Task, Action, Result) for behavioral questions.\n\nFirst question: " + interviewQuestions[0],
-      sender: "ai",
-      timestamp: new Date(),
-      type: "question"
-    };
-    
-    setMessages(prev => [...prev, startMessage]);
+
+    try {
+      // Fetch practice questions for the selected role
+      const response = await fetch(`/api/interviews/practice/${selectedRole}?count=5`);
+      let questions = [];
+
+      if (response.ok) {
+        const data = await response.json();
+        questions = data.questions;
+      } else {
+        // Fallback to static questions
+        questions = interviewQuestions.slice(0, 5);
+      }
+
+      const startMessage: Message = {
+        id: Date.now().toString(),
+        content: `Great! Let's start your mock interview for ${selectedRole.replace('-', ' ')}. I'll ask you questions and provide feedback on your responses. Remember to use the STAR method (Situation, Task, Action, Result) for behavioral questions.\n\nFirst question: ${questions[0] || "Tell me about yourself."}`,
+        sender: "ai",
+        timestamp: new Date(),
+        type: "question"
+      };
+
+      setMessages(prev => [...prev, startMessage]);
+    } catch (error) {
+      console.error('Error starting interview:', error);
+      toast({
+        title: "Error",
+        description: "Unable to start interview. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const resetSession = () => {
@@ -336,14 +386,29 @@ export function InterviewChatbot() {
         <div className="space-y-4">
           <Card className="bg-gradient-card border-0 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-lg">Session Controls</CardTitle>
+              <CardTitle className="text-lg">Interview Setup</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Select Role</label>
+                <Select value={selectedRole} onValueChange={setSelectedRole}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose a role..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {availableRoles.map((role) => (
+                      <SelectItem key={role} value={role}>
+                        {role.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
               <Button
                 onClick={startMockInterview}
                 className="w-full"
                 variant="default"
-                disabled={interviewMode === "mock"}
+                disabled={interviewMode === "mock" || !selectedRole}
               >
                 <Play className="mr-2 h-4 w-4" />
                 Start Mock Interview

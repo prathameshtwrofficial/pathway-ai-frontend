@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/contexts/AuthContext";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { ArrowRight, ArrowLeft, CheckCircle, Brain, Target, Users, Lightbulb, Trophy } from "lucide-react";
 
 // TODO: Replace with real API call for dynamic questions

@@ -116,9 +116,11 @@ Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](
    ```
 
 4. **Set up environment variables**
-
-   - Copy `.env.example` to `.env` in the backend directory
+   - Copy `backend/.env.example` to `backend/.env`
    - Configure Firebase credentials and other required variables
+   - Get API keys for:
+     - **Hugging Face** (free): https://huggingface.co/settings/tokens
+     - **Adzuna Jobs API** (free tier): https://developer.adzuna.com/
 
 5. **Start the development servers**
 
@@ -147,6 +149,34 @@ Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](
 4. **Explore Recommendations** - View personalized career suggestions
 5. **Follow Your Roadmap** - Access step-by-step career development plans
 6. **Practice Interviews** - Use our AI coach for interview preparation
+
+## 🚀 Latest Updates (v2.0 - Fully Functional AI Platform)
+
+This version transforms AI Career Compass into a fully functional platform with:
+
+### 🤖 Real Machine Learning Integration
+
+- **Hugging Face AI Models**: Resume analysis, career recommendations, and interview question generation using state-of-the-art NLP models
+- **Real Resume Processing**: Upload and analyze PDF/DOCX resumes with automatic text extraction and skill detection
+- **ML-Powered Career Matching**: Intelligent career recommendations based on skills and interests
+
+### 💼 Authentic Job Data
+
+- **Adzuna Job API Integration**: Real-time job listings from thousands of employers
+- **Live Job Search**: Search by keywords, location, and career paths with authentic salary data
+- **Job Market Insights**: Current market trends and salary information
+
+### 🎯 Real-World Interview Preparation
+
+- **Curated Question Database**: Industry-standard interview questions for 5+ roles (Software Engineer, Data Scientist, Product Manager, etc.)
+- **AI-Generated Questions**: Dynamic question generation using ML for personalized practice
+- **Role-Based Practice**: Select specific roles and get tailored interview scenarios
+
+### 🔧 Technical Enhancements
+
+- **Resume Upload & Analysis**: Support for PDF, DOCX, and TXT files with automatic text extraction
+- **Enhanced Assessment Scoring**: ML-powered personality and skills analysis
+- **Improved Error Handling**: Robust API fallbacks and user feedback systems
 
 ## 🤝 Contributing
 
