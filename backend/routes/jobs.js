@@ -109,8 +109,15 @@ async function searchIndianJobs(query, location = '') {
   const searchQuery = query || 'software developer';
   const searchLocation = location || 'India';
   
-  // Use LinkedIn Jobs scraping approach (using public APIs)
-  // Since most job APIs require payment, we'll use curated job data + Indeed search
+  // Try Adzuna API first (free tier available)
+  try {
+    const adzunaJobs = await searchAdzuna(searchQuery, searchLocation);
+    if (adzunaJobs.length > 0) {
+      jobs.push(...adzunaJobs);
+    }
+  } catch (error) {
+    console.log('Adzuna API not available:', error.message);
+  }
   
   // Try Jooble API (has free tier)
   try {
@@ -128,6 +135,45 @@ async function searchIndianJobs(query, location = '') {
   }
   
   return jobs.slice(0, 20); // Limit results
+}
+
+// Search using Adzuna API
+async function searchAdzuna(query, location) {
+  const appId = process.env.ADZUNA_APP_ID;
+  const appKey = process.env.ADZUNA_APP_KEY;
+  
+  if (!appId || !appKey) {
+    console.log('Adzuna credentials not configured');
+    return [];
+  }
+  
+  try {
+    // Search in India (country code = 'in')
+    const response = await axios.get(
+      `https://api.adzuna.com/v1/api/jobs/in/search?app_id=${appId}&app_key=${appKey}&what=${encodeURIComponent(query)}&where=${encodeURIComponent(location)}&results_per_page=15`,
+      { timeout: 5000 }
+    );
+    
+    if (response.data && response.data.results) {
+      return response.data.results.map(job => ({
+        id: `adzuna-${job.id}`,
+        title: job.title,
+        company: job.company?.display_name || 'Company Not Disclosed',
+        location: job.location?.display_name || location || 'India',
+        description: cleanHtml(job.description || ''),
+        salary: job.salary_min && job.salary_max 
+          ? `₹${Math.round(job.salary_min/12)}-${Math.round(job.salary_max/12)} LPA` 
+          : job.salary_is_predicted === 1 ? 'Competitive' : 'Not Disclosed',
+        url: job.redirect_url,
+        postedDate: job.date_created,
+        source: 'Adzuna',
+        jobType: detectJobType(job.title, job.description)
+      }));
+    }
+  } catch (error) {
+    console.log('Adzuna search error:', error.message);
+  }
+  return [];
 }
 
 // Search using Jooble API
