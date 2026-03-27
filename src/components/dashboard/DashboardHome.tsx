@@ -40,6 +40,104 @@ export function DashboardHome() {
     question4: ""
   });
 
+  const [recommendedResources, setRecommendedResources] = useState<any[]>([]);
+  const [resourcesLoading, setResourcesLoading] = useState(false);
+
+  // AI Assessment data from Firestore
+  const [aiAssessment, setAiAssessment] = useState<any>(null);
+  const [assessmentLoading, setAssessmentLoading] = useState(true);
+
+  // Fetch AI assessment from Firestore
+  useEffect(() => {
+    if (!currentUser?.uid) {
+      setAssessmentLoading(false);
+      return;
+    }
+
+    // Set up real-time listener for AI assessment (stored at user document level)
+    const userDocRef = doc(db, 'users', currentUser.uid);
+    const unsubscribe = onSnapshot(userDocRef, 
+      (docSnap) => {
+        try {
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            // Check for aiAssessment field at the user document level
+            // Also support the new top-level fields
+            if (data.aiAssessment) {
+              console.log("AI Assessment data:", data.aiAssessment);
+              setAiAssessment(data.aiAssessment);
+            } else if (data.userRecommendations && data.userRecommendations.length > 0) {
+              // Support new top-level fields format from CareerQuiz v4.0
+              console.log("Using top-level assessment data");
+              setAiAssessment({
+                recommendations: data.userRecommendations,
+                matchedOccupations: data.matchedOccupations || [],
+                selectedSector: data.userSector,
+                recommendedSkills: data.userRecommendedSkills,
+                assessmentVersion: data.lastAssessmentVersion
+              });
+            } else {
+              setAiAssessment(null);
+            }
+          } else {
+            setAiAssessment(null);
+          }
+        } catch (err) {
+          console.error("Error reading AI assessment:", err);
+          setAiAssessment(null);
+        } finally {
+          setAssessmentLoading(false);
+        }
+      },
+      (error) => {
+        // Error callback for onSnapshot
+        console.error("Firestore error for AI assessment:", error);
+        setAssessmentLoading(false);
+      }
+    );
+
+    return () => {
+      unsubscribe();
+    };
+  }, [currentUser]);
+
+  // Fetch recommended resources from API or use assessment data
+  useEffect(() => {
+    const fetchResources = async () => {
+      setResourcesLoading(true);
+      try {
+        // First, try to use resources from AI assessment
+        if (aiAssessment?.recommendedResources && aiAssessment.recommendedResources.length > 0) {
+          setRecommendedResources(aiAssessment.recommendedResources.slice(0, 3).map((r: string, i: number) => ({
+            id: `resource-${i}`,
+            title: r,
+            description: `Recommended resource for your ${aiAssessment.selectedSector || 'selected'} career path`
+          })));
+          setResourcesLoading(false);
+          return;
+        }
+        
+        // Fallback to API
+        const response = await fetch('/api/resources');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.resources && data.resources.length > 0) {
+            setRecommendedResources(data.resources.slice(0, 3));
+          }
+        }
+      } catch (error) {
+        console.log("Using fallback resources - API not available");
+      } finally {
+        setResourcesLoading(false);
+      }
+    };
+
+    // Fetch resources if we have AI assessment or legacy career assessment
+    if (aiAssessment || userProfile?.careerAssessment?.interests) {
+      fetchResources();
+    }
+  }, [aiAssessment, userProfile?.careerAssessment?.interests]);
+
   useEffect(() => {
     if (!currentUser?.uid) {
       setProfileLoading(false);
@@ -234,9 +332,11 @@ export function DashboardHome() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               <div className="text-center p-2 md:p-0">
                 <div className="text-xl md:text-2xl font-bold text-primary">
-                  {Array.isArray(userProfile?.careerQuizAttempts) ? userProfile.careerQuizAttempts.length : 0}
+                  {/* Show 1 if AI assessment completed, otherwise count quizzes */}
+                  {aiAssessment?.recommendations || userProfile?.hasCompletedAssessment ? "1" : 
+                    (Array.isArray(userProfile?.careerQuizAttempts) ? userProfile.careerQuizAttempts.length : 0)}
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground">Quizzes Taken</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Assessments</div>
               </div>
               <div className="text-center p-2 md:p-0">
                 <div className="text-xl md:text-2xl font-bold text-accent">
@@ -246,9 +346,12 @@ export function DashboardHome() {
               </div>
               <div className="text-center p-2 md:p-0">
                 <div className="text-lg md:text-2xl font-bold text-green-600">
-                  {userProfile?.learningProgress ? "Active" : "Not Started"}
+                  {/* Show sector if assessment completed */}
+                  {aiAssessment?.selectedSector ? 
+                    aiAssessment.selectedSector.charAt(0).toUpperCase() + aiAssessment.selectedSector.slice(1) :
+                    (userProfile?.learningProgress ? "Active" : "Not Started")}
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground">Learning Status</div>
+                <div className="text-xs md:text-sm text-muted-foreground">{aiAssessment?.selectedSector ? "Sector" : "Status"}</div>
               </div>
               <div className="text-center p-2 md:p-0">
                 <div className="text-lg md:text-2xl font-bold text-blue-600">
@@ -279,11 +382,88 @@ export function DashboardHome() {
           {/* Career Path Card - Full width on mobile, spans 2 on larger screens */}
           <Card className="md:col-span-2">
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg md:text-xl">Your Career Path</CardTitle>
-              <CardDescription className="text-sm">Track your progress towards your career goals</CardDescription>
+              <CardTitle className="text-lg md:text-xl flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                {aiAssessment?.recommendations ? 'Your AI Career Match' : 'Your Career Path'}
+              </CardTitle>
+              <CardDescription className="text-sm">
+                {aiAssessment?.recommendations 
+                  ? 'Based on your AI-powered assessment' 
+                  : 'Track your progress towards your career goals'}
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              {userProfile?.careerAssessment ? (
+              {/* AI Assessment Results */}
+              {aiAssessment?.recommendations && aiAssessment.recommendations.length > 0 ? (
+                <div className="space-y-4">
+                  {aiAssessment.recommendations.slice(0, 3).map((rec: any, index: number) => (
+                    <div key={index} className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-primary/10">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="font-semibold text-primary">{rec.title}</h4>
+                        <span className="px-2 py-1 bg-accent/20 text-accent text-xs font-medium rounded-full">
+                          {rec.match}% Match
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-2 line-clamp-2">{rec.description}</p>
+                      <div className="flex gap-4 text-xs text-muted-foreground">
+                        {rec.salaryRange && <span>💰 {rec.salaryRange}</span>}
+                        {rec.growthPotential && <span>📈 {rec.growthPotential}</span>}
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {/* Show recommended skills if available */}
+                  {aiAssessment?.recommendedSkills && aiAssessment.recommendedSkills.length > 0 && (
+                    <div className="mt-4 pt-4 border-t">
+                      <h5 className="font-medium text-sm mb-3 flex items-center gap-2">
+                        <Target className="h-4 w-4" />
+                        Recommended Skills
+                      </h5>
+                      <div className="flex flex-wrap gap-2">
+                        {aiAssessment.recommendedSkills.slice(0, 6).map((skill: string, idx: number) => (
+                          <span key={idx} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Show matched occupations if available */}
+                  {aiAssessment?.matchedOccupations && aiAssessment.matchedOccupations.length > 0 && (
+                    <div className="mt-4 pt-4 border-t">
+                      <h5 className="font-medium text-sm mb-3 flex items-center gap-2">
+                        <Target className="h-4 w-4" />
+                        Top Career Matches
+                      </h5>
+                      <div className="space-y-2">
+                        {aiAssessment.matchedOccupations.slice(0, 3).map((occ: any, idx: number) => (
+                          <div key={idx} className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                            <div>
+                              <span className="font-medium text-sm">{occ.title}</span>
+                              <span className="text-xs text-muted-foreground ml-2">({occ.category})</span>
+                            </div>
+                            <span className="text-xs font-medium text-primary">{occ.matchScore}%</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full" 
+                    onClick={() => {
+                      localStorage.setItem('assessmentRetake', 'true');
+                      window.location.href = '/career-quiz';
+                    }}
+                  >
+                    <Target className="mr-2 h-4 w-4" />
+                    Retake Assessment
+                  </Button>
+                </div>
+              ) : userProfile?.careerAssessment ? (
                 <div className="space-y-3 md:space-y-4">
                   <div className="p-3 md:p-4 bg-primary/5 rounded-lg">
                     <h4 className="font-medium mb-2 text-sm md:text-base">Your Career Assessment</h4>
@@ -452,29 +632,49 @@ export function DashboardHome() {
               <CardDescription className="text-sm">Based on your career interests</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3 md:space-y-4">
-                <div className="flex items-start p-3 md:p-4 border rounded-lg">
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0">
-                    <BookOpen className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+              {resourcesLoading ? (
+                <div className="flex items-center justify-center py-4">
+                  <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+                </div>
+              ) : recommendedResources.length > 0 ? (
+                <div className="space-y-3 md:space-y-4">
+                  {recommendedResources.map((resource) => (
+                    <div key={resource.id} className="flex items-start p-3 md:p-4 border rounded-lg">
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                        <BookOpen className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-medium text-sm md:text-base truncate">{resource.title}</h4>
+                        <p className="text-xs md:text-sm text-muted-foreground mt-1">{resource.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex items-start p-3 md:p-4 border rounded-lg">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                      <BookOpen className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-medium text-sm md:text-base truncate">Introduction to Data Science</h4>
+                      <p className="text-xs md:text-sm text-muted-foreground mt-1">Learn the fundamentals of data analysis and visualization</p>
+                    </div>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="font-medium text-sm md:text-base truncate">Introduction to Data Science</h4>
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1">Learn the fundamentals of data analysis and visualization</p>
+                  <div className="flex items-start p-3 md:p-4 border rounded-lg">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary md:w-5 md:h-5">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                      </svg>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-medium text-sm md:text-base truncate">Modern JavaScript Frameworks</h4>
+                      <p className="text-xs md:text-sm text-muted-foreground mt-1">Master React, Vue, and Angular for front-end development</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start p-3 md:p-4 border rounded-lg">
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary md:w-5 md:h-5">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="font-medium text-sm md:text-base truncate">Modern JavaScript Frameworks</h4>
-                    <p className="text-xs md:text-sm text-muted-foreground mt-1">Master React, Vue, and Angular for front-end development</p>
-                  </div>
-                </div>
-              </div>
+              )}
             </CardContent>
           </Card>
         </div>

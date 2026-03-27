@@ -1,0 +1,1744 @@
+{
+  "occupations": [
+    {
+      "id": "software-engineer",
+      "title": "Software Engineer",
+      "category": "technology",
+      "sector": "tech",
+      "description": "Design, develop, and maintain software applications and systems.",
+      "requiredSkills": ["Programming", "Problem Solving", "Data Structures", "Algorithms", "Version Control"],
+      "interests": ["coding", "building", "technology", "innovation"],
+      "salaryRange": "$70,000 - $150,000",
+      "growthPotential": "Very High",
+      "workStyle": ["collaborative", "independent"],
+      "questions": [
+        {
+          "id": "se-1",
+          "question": "What type of problems do you enjoy solving most?",
+          "options": [
+            { "id": "se-1-a", "label": "Building new applications from scratch", "score": 4 },
+            { "id": "se-1-b", "label": "Optimizing existing systems", "score": 3 },
+            { "id": "se-1-c", "label": "Debugging and fixing issues", "score": 3 },
+            { "id": "se-1-d", "label": "Designing system architecture", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "se-2",
+          "question": "How do you prefer to work on projects?",
+          "options": [
+            { "id": "se-2-a", "label": "Working alone on complex problems", "score": 3 },
+            { "id": "se-2-b", "label": "Collaborating with a team", "score": 4 },
+            { "id": "se-2-c", "label": "Leading a team of developers", "score": 4 },
+            { "id": "se-2-d", "label": "Mentoring junior developers", "score": 3 }
+          ],
+          "traitCategory": "workStyle",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["coding", "system-design", "problem-solving"]
+    },
+    {
+      "id": "data-scientist",
+      "title": "Data Scientist",
+      "category": "technology",
+      "sector": "tech",
+      "description": "Analyze complex data sets using statistical methods and machine learning to drive business decisions.",
+      "requiredSkills": ["Python", "Statistics", "Machine Learning", "SQL", "Data Visualization"],
+      "interests": ["analytics", "statistics", "research", "patterns"],
+      "salaryRange": "$80,000 - $160,000",
+      "growthPotential": "Very High",
+      "workStyle": ["independent", "analytical"],
+      "questions": [
+        {
+          "id": "ds-1",
+          "question": "What excites you most about working with data?",
+          "options": [
+            { "id": "ds-1-a", "label": "Finding hidden patterns and insights", "score": 4 },
+            { "id": "ds-1-b", "label": "Building predictive models", "score": 4 },
+            { "id": "ds-1-c", "label": "Visualizing data to tell stories", "score": 3 },
+            { "id": "ds-1-d", "label": "Cleaning and organizing messy data", "score": 2 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ds-2",
+          "question": "How do you approach solving a complex data problem?",
+          "options": [
+            { "id": "ds-2-a", "label": "Start with data exploration", "score": 4 },
+            { "id": "ds-2-b", "label": "Formulate hypotheses and test statistically", "score": 4 },
+            { "id": "ds-2-c", "label": "Build machine learning models first", "score": 3 },
+            { "id": "ds-2-d", "label": "Consult with domain experts", "score": 2 }
+          ],
+          "traitCategory": "personality",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["statistics", "machine-learning", "coding"]
+    },
+    {
+      "id": "ai-ml-engineer",
+      "title": "AI/ML Engineer",
+      "category": "technology",
+      "sector": "tech",
+      "description": "Design and deploy artificial intelligence and machine learning solutions.",
+      "requiredSkills": ["Python", "TensorFlow", "PyTorch", "Deep Learning", "Neural Networks"],
+      "interests": ["ai", "machine-learning", "innovation", "algorithms"],
+      "salaryRange": "$100,000 - $180,000",
+      "growthPotential": "Very High",
+      "workStyle": ["independent", "research-oriented"],
+      "questions": [
+        {
+          "id": "ai-1",
+          "question": "What area of AI interests you most?",
+          "options": [
+            { "id": "ai-1-a", "label": "Computer Vision and Image Recognition", "score": 4 },
+            { "id": "ai-1-b", "label": "Natural Language Processing", "score": 4 },
+            { "id": "ai-1-c", "label": "Reinforcement Learning", "score": 3 },
+            { "id": "ai-1-d", "label": "Generative AI and LLMs", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ai-2",
+          "question": "How do you approach building an AI solution?",
+          "options": [
+            { "id": "ai-2-a", "label": "Research state-of-the-art methods", "score": 4 },
+            { "id": "ai-2-b", "label": "Start simple and iterate", "score": 3 },
+            { "id": "ai-2-c", "label": "Focus on data quality first", "score": 4 },
+            { "id": "ai-2-d", "label": "Consider deployment and scalability", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["deep-learning", "neural-networks", "model-deployment"]
+    },
+    {
+      "id": "cybersecurity-analyst",
+      "title": "Cybersecurity Analyst",
+      "category": "technology",
+      "sector": "tech",
+      "description": "Protect organizations from cyber threats through monitoring and incident response.",
+      "requiredSkills": ["Network Security", "Penetration Testing", "Security Tools", "Risk Assessment"],
+      "interests": ["security", "protection", "networking", "ethical-hacking"],
+      "salaryRange": "$70,000 - $130,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "detail-oriented"],
+      "questions": [
+        {
+          "id": "cs-1",
+          "question": "What aspect of security interests you most?",
+          "options": [
+            { "id": "cs-1-a", "label": "Threat detection and monitoring", "score": 4 },
+            { "id": "cs-1-b", "label": "Penetration testing and vulnerability assessment", "score": 4 },
+            { "id": "cs-1-c", "label": "Security architecture and design", "score": 3 },
+            { "id": "cs-1-d", "label": "Incident response and forensics", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "cs-2",
+          "question": "How do you approach securing a system?",
+          "options": [
+            { "id": "cs-2-a", "label": "Assume breach and minimize impact", "score": 4 },
+            { "id": "cs-2-b", "label": "Defense in depth approach", "score": 4 },
+            { "id": "cs-2-c", "label": "Regular security audits", "score": 3 },
+            { "id": "cs-2-d", "label": "Employee training and awareness", "score": 2 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["networking", "security-tools", "incident-response"]
+    },
+    {
+      "id": "cloud-engineer",
+      "title": "Cloud Engineer",
+      "category": "technology",
+      "sector": "tech",
+      "description": "Design, implement, and manage cloud infrastructure and services.",
+      "requiredSkills": ["AWS/Azure/GCP", "Docker", "Kubernetes", "Infrastructure as Code"],
+      "interests": ["cloud-computing", "infrastructure", "automation", "devops"],
+      "salaryRange": "$90,000 - $160,000",
+      "growthPotential": "Very High",
+      "workStyle": ["technical", "problem-solving"],
+      "questions": [
+        {
+          "id": "ce-1",
+          "question": "What cloud platform do you prefer?",
+          "options": [
+            { "id": "ce-1-a", "label": "AWS", "score": 3 },
+            { "id": "ce-1-b", "label": "Azure", "score": 3 },
+            { "id": "ce-1-c", "label": "Google Cloud", "score": 3 },
+            { "id": "ce-1-d", "label": "Multi-cloud approach", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        },
+        {
+          "id": "ce-2",
+          "question": "What motivates you most in cloud work?",
+          "options": [
+            { "id": "ce-2-a", "label": "Building scalable architectures", "score": 4 },
+            { "id": "ce-2-b", "label": "Automating infrastructure", "score": 4 },
+            { "id": "ce-2-c", "label": "Cost optimization", "score": 3 },
+            { "id": "ce-2-d", "label": "Disaster recovery planning", "score": 2 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["cloud-platforms", "infrastructure", "automation"]
+    },
+    {
+      "id": "mechanical-engineer",
+      "title": "Mechanical Engineer",
+      "category": "engineering",
+      "sector": "mechanical",
+      "description": "Design, develop, and test mechanical devices and systems.",
+      "requiredSkills": ["CAD Software", "Thermodynamics", "Materials Science", "Physics", "Manufacturing Processes"],
+      "interests": ["machines", "design", "physics", "building"],
+      "salaryRange": "$60,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["hands-on", "analytical"],
+      "questions": [
+        {
+          "id": "me-1",
+          "question": "What type of mechanical work interests you most?",
+          "options": [
+            { "id": "me-1-a", "label": "Designing new products and machines", "score": 4 },
+            { "id": "me-1-b", "label": "Analyzing and improving existing systems", "score": 3 },
+            { "id": "me-1-c", "label": "Manufacturing and production", "score": 3 },
+            { "id": "me-1-d", "label": "Research and development", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "me-2",
+          "question": "What tools and software do you prefer?",
+          "options": [
+            { "id": "me-2-a", "label": "CAD software (SolidWorks, AutoCAD)", "score": 4 },
+            { "id": "me-2-b", "label": "Simulation and analysis tools", "score": 4 },
+            { "id": "me-2-c", "label": "3D printing and prototyping", "score": 3 },
+            { "id": "me-2-d", "label": "Manufacturing equipment", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["cad", "thermodynamics", "materials", "manufacturing"]
+    },
+    {
+      "id": "aerospace-engineer",
+      "title": "Aerospace Engineer",
+      "category": "engineering",
+      "sector": "aviation",
+      "description": "Design and develop aircraft, spacecraft, satellites, and missiles.",
+      "requiredSkills": ["Aerodynamics", "Propulsion", "Structures", "Flight Mechanics", "CAD"],
+      "interests": ["aircraft", "space", "flight", "innovation"],
+      "salaryRange": "$80,000 - $160,000",
+      "growthPotential": "High",
+      "workStyle": ["research-oriented", "detail-oriented"],
+      "questions": [
+        {
+          "id": "ae-1",
+          "question": "What area of aerospace interests you most?",
+          "options": [
+            { "id": "ae-1-a", "label": "Aircraft design and development", "score": 4 },
+            { "id": "ae-1-b", "label": "Spacecraft and satellite systems", "score": 4 },
+            { "id": "ae-1-c", "label": "Propulsion systems", "score": 3 },
+            { "id": "ae-1-d", "label": "Aerodynamics and flight testing", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ae-2",
+          "question": "How do you approach engineering challenges?",
+          "options": [
+            { "id": "ae-2-a", "label": "rigorous analysis and calculations", "score": 4 },
+            { "id": "ae-2-b", "label": "Simulation and modeling", "score": 4 },
+            { "id": "ae-2-c", "label": "Prototyping and testing", "score": 3 },
+            { "id": "ae-2-d", "label": "Team collaboration with experts", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["aerodynamics", "propulsion", "structures", "systems-engineering"]
+    },
+    {
+      "id": "electrical-engineer",
+      "title": "Electrical Engineer",
+      "category": "engineering",
+      "sector": "mechanical",
+      "description": "Design, develop, and test electrical equipment and systems.",
+      "requiredSkills": ["Circuit Analysis", "Electronics", "Power Systems", "Signal Processing", "CAD"],
+      "interests": ["electronics", "circuits", "power", "innovation"],
+      "salaryRange": "$70,000 - $140,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "technical"],
+      "questions": [
+        {
+          "id": "ee-1",
+          "question": "What type of electrical systems interest you most?",
+          "options": [
+            { "id": "ee-1-a", "label": "Power generation and distribution", "score": 4 },
+            { "id": "ee-1-b", "label": "Electronic circuits and devices", "score": 4 },
+            { "id": "ee-1-c", "label": "Control systems and automation", "score": 3 },
+            { "id": "ee-1-d", "label": "Signal processing and communications", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ee-2",
+          "question": "How do you approach circuit design?",
+          "options": [
+            { "id": "ee-2-a", "label": "Theoretical analysis first", "score": 4 },
+            { "id": "ee-2-b", "label": "Simulation and iterative design", "score": 4 },
+            { "id": "ee-2-c", "label": "Prototyping and testing", "score": 3 },
+            { "id": "ee-2-d", "label": "Using reference designs", "score": 2 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["circuits", "power-systems", "electronics", "signal-processing"]
+    },
+    {
+      "id": "manufacturing-engineer",
+      "title": "Manufacturing Engineer",
+      "category": "engineering",
+      "sector": "manufacturing",
+      "description": "Design and optimize manufacturing processes and systems.",
+      "requiredSkills": ["Process Design", "Lean Manufacturing", "Quality Control", "CAD", "Problem Solving"],
+      "interests": ["production", "efficiency", "optimization", "automation"],
+      "salaryRange": "$60,000 - $110,000",
+      "growthPotential": "High",
+      "workStyle": ["hands-on", "process-oriented"],
+      "questions": [
+        {
+          "id": "mfe-1",
+          "question": "What aspect of manufacturing interests you most?",
+          "options": [
+            { "id": "mfe-1-a", "label": "Process design and optimization", "score": 4 },
+            { "id": "mfe-1-b", "label": "Quality control and assurance", "score": 3 },
+            { "id": "mfe-1-c", "label": "Automation and robotics", "score": 4 },
+            { "id": "mfe-1-d", "label": "Supply chain and logistics", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "mfe-2",
+          "question": "How do you approach improving manufacturing processes?",
+          "options": [
+            { "id": "mfe-2-a", "label": "Lean and Six Sigma methodologies", "score": 4 },
+            { "id": "mfe-2-b", "label": "Data analysis and metrics", "score": 4 },
+            { "id": "mfe-2-c", "label": "Employee involvement and training", "score": 3 },
+            { "id": "mfe-2-d", "label": "Technology and automation", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["lean-manufacturing", "process-optimization", "quality", "automation"]
+    },
+    {
+      "id": "robotics-engineer",
+      "title": "Robotics Engineer",
+      "category": "engineering",
+      "sector": "tech",
+      "description": "Design, build, and program robots and robotic systems.",
+      "requiredSkills": ["Robotics", "Programming", "Sensors", "Actuators", "Control Systems"],
+      "interests": ["robots", "automation", "ai", "building"],
+      "salaryRange": "$80,000 - $150,000",
+      "growthPotential": "Very High",
+      "workStyle": ["hands-on", "innovative"],
+      "questions": [
+        {
+          "id": "re-1",
+          "question": "What type of robotics interests you most?",
+          "options": [
+            { "id": "re-1-a", "label": "Industrial and manufacturing robots", "score": 3 },
+            { "id": "re-1-b", "label": "Service and helper robots", "score": 3 },
+            { "id": "re-1-c", "label": "Autonomous vehicles and drones", "score": 4 },
+            { "id": "re-1-d", "label": "Medical and surgical robots", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "re-2",
+          "question": "How do you approach robot programming?",
+          "options": [
+            { "id": "re-2-a", "label": "ROS and middleware development", "score": 4 },
+            { "id": "re-2-b", "label": "Sensor integration and perception", "score": 4 },
+            { "id": "re-2-c", "label": "Motion planning and control", "score": 4 },
+            { "id": "re-2-d", "label": "Machine learning for robotics", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["ros", "control-systems", "sensors", "motion-planning"]
+    },
+    {
+      "id": "space-systems-engineer",
+      "title": "Space Systems Engineer",
+      "category": "engineering",
+      "sector": "space-tech",
+      "description": "Design and develop systems for space exploration and satellite operations.",
+      "requiredSkills": ["Orbital Mechanics", "Spacecraft Design", "Systems Engineering", "Telemetry"],
+      "interests": ["space", "satellites", "exploration", "nasa"],
+      "salaryRange": "$90,000 - $180,000",
+      "growthPotential": "High",
+      "workStyle": ["research-oriented", "detail-oriented"],
+      "questions": [
+        {
+          "id": "sse-1",
+          "question": "What space-related work interests you most?",
+          "options": [
+            { "id": "sse-1-a", "label": "Satellite design and operations", "score": 4 },
+            { "id": "sse-1-b", "label": "Spacecraft mission planning", "score": 4 },
+            { "id": "sse-1-c", "label": "Launch vehicle systems", "score": 3 },
+            { "id": "sse-1-d", "label": "Space exploration and research", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "sse-2",
+          "question": "How do you approach space system challenges?",
+          "options": [
+            { "id": "sse-2-a", "label": "rigorous systems engineering", "score": 4 },
+            { "id": "sse-2-b", "label": "Failure mode analysis", "score": 4 },
+            { "id": "sse-2-c", "label": "Cross-disciplinary teamwork", "score": 4 },
+            { "id": "sse-2-d", "label": "Innovation under constraints", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["orbital-mechanics", "systems-engineering", "mission-design"]
+    },
+    {
+      "id": "biomedical-engineer",
+      "title": "Biomedical Engineer",
+      "category": "engineering",
+      "sector": "medical",
+      "description": "Design and develop medical devices and healthcare technology.",
+      "requiredSkills": ["Biomechanics", "Medical Devices", "Biomaterials", "Regulatory Affairs", "CAD"],
+      "interests": ["medicine", "technology", "healthcare", "innovation"],
+      "salaryRange": "$70,000 - $140,000",
+      "growthPotential": "Very High",
+      "workStyle": ["research-oriented", "detail-oriented"],
+      "questions": [
+        {
+          "id": "bme-1",
+          "question": "What type of biomedical work interests you most?",
+          "options": [
+            { "id": "bme-1-a", "label": "Medical devices and implants", "score": 4 },
+            { "id": "bme-1-b", "label": "Diagnostic equipment", "score": 3 },
+            { "id": "bme-1-c", "label": "Tissue engineering and biomaterials", "score": 4 },
+            { "id": "bme-1-d", "label": "Healthcare IT and monitoring", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "bme-2",
+          "question": "How do you approach medical device development?",
+          "options": [
+            { "id": "bme-2-a", "label": "User needs and clinical requirements", "score": 4 },
+            { "id": "bme-2-b", "label": "Regulatory compliance (FDA, CE)", "score": 4 },
+            { "id": "bme-2-c", "label": "Prototype testing and iteration", "score": 4 },
+            { "id": "bme-2-d", "label": "Cross-functional team collaboration", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["medical-devices", "biomechanics", "regulatory", "product-development"]
+    },
+    {
+      "id": "doctor",
+      "title": "Physician/Doctor",
+      "category": "medical",
+      "sector": "medical",
+      "description": "Diagnose and treat patients, provide medical care and advice.",
+      "requiredSkills": ["Clinical Diagnosis", "Patient Care", "Medical Knowledge", "Communication", "Procedures"],
+      "interests": ["medicine", "helping-others", "healthcare", "science"],
+      "salaryRange": "$150,000 - $400,000",
+      "growthPotential": "High",
+      "workStyle": ["patient-facing", "analytical"],
+      "questions": [
+        {
+          "id": "doc-1",
+          "question": "What type of medicine interests you most?",
+          "options": [
+            { "id": "doc-1-a", "label": "Primary care and family medicine", "score": 4 },
+            { "id": "doc-1-b", "label": "Surgical specialties", "score": 4 },
+            { "id": "doc-1-c", "label": "Internal medicine and subspecialties", "score": 4 },
+            { "id": "doc-1-d", "label": "Emergency and critical care", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "doc-2",
+          "question": "How do you approach patient care?",
+          "options": [
+            { "id": "doc-2-a", "label": "Holistic approach considering all factors", "score": 4 },
+            { "id": "doc-2-b", "label": "Evidence-based medicine", "score": 4 },
+            { "id": "doc-2-c", "label": "Patient education and prevention", "score": 4 },
+            { "id": "doc-2-d", "label": "Compassionate and empathetic care", "score": 4 }
+          ],
+          "traitCategory": "personality",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["clinical-skills", "diagnosis", "patient-communication", "medical-knowledge"]
+    },
+    {
+      "id": "nurse",
+      "title": "Registered Nurse",
+      "category": "medical",
+      "sector": "medical",
+      "description": "Provide patient care, administer medications, and coordinate healthcare.",
+      "requiredSkills": ["Patient Care", "Clinical Skills", "Critical Thinking", "Communication", "Compassion"],
+      "interests": ["helping-others", "healthcare", "patient-care", "nursing"],
+      "salaryRange": "$60,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["patient-facing", "collaborative"],
+      "questions": [
+        {
+          "id": "nur-1",
+          "question": "What nursing specialty interests you most?",
+          "options": [
+            { "id": "nur-1-a", "label": "Emergency and trauma", "score": 4 },
+            { "id": "nur-1-b", "label": "Critical care and ICU", "score": 4 },
+            { "id": "nur-1-c", "label": "Pediatrics", "score": 3 },
+            { "id": "nur-1-d", "label": "Community and public health", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "nur-2",
+          "question": "How do you handle stressful situations?",
+          "options": [
+            { "id": "nur-2-a", "label": "Stay calm and focused", "score": 4 },
+            { "id": "nur-2-b", "label": "Prioritize and triage", "score": 4 },
+            { "id": "nur-2-c", "label": "Seek support from team", "score": 3 },
+            { "id": "nur-2-d", "label": "Follow protocols and procedures", "score": 4 }
+          ],
+          "traitCategory": "personality",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["clinical-skills", "patient-care", "critical-thinking", "communication"]
+    },
+    {
+      "id": "pharmacist",
+      "title": "Pharmacist",
+      "category": "medical",
+      "sector": "medical",
+      "description": "Dispense medications, counsel patients, and ensure medication safety.",
+      "requiredSkills": ["Pharmaceutical Knowledge", "Patient Counseling", "Medication Therapy Management", "Chemistry"],
+      "interests": ["medicine", "chemistry", "helping-others", "healthcare"],
+      "salaryRange": "$100,000 - $150,000",
+      "growthPotential": "High",
+      "workStyle": ["patient-facing", "detail-oriented"],
+      "questions": [
+        {
+          "id": "pharm-1",
+          "question": "What pharmacy setting interests you most?",
+          "options": [
+            { "id": "pharm-1-a", "label": "Community/retail pharmacy", "score": 4 },
+            { "id": "pharm-1-b", "label": "Hospital and clinical pharmacy", "score": 4 },
+            { "id": "pharm-1-c", "label": "Pharmaceutical industry", "score": 3 },
+            { "id": "pharm-1-d", "label": "Research and development", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "pharm-2",
+          "question": "How do you ensure medication safety?",
+          "options": [
+            { "id": "pharm-2-a", "label": "Double-check prescriptions carefully", "score": 4 },
+            { "id": "pharm-2-b", "label": "Counsel patients on proper use", "score": 4 },
+            { "id": "pharm-2-c", "label": "Monitor for drug interactions", "score": 4 },
+            { "id": "pharm-2-d", "label": "Stay updated on new medications", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["pharmacology", "patient-counseling", "medication-safety"]
+    },
+    {
+      "id": "physical-therapist",
+      "title": "Physical Therapist",
+      "category": "medical",
+      "sector": "medical",
+      "description": "Help patients recover movement and manage pain through therapeutic exercises.",
+      "requiredSkills": ["Rehabilitation", "Movement Analysis", "Therapeutic Techniques", "Patient Motivation"],
+      "interests": ["healthcare", "helping-others", "fitness", "rehabilitation"],
+      "salaryRange": "$60,000 - $110,000",
+      "growthPotential": "High",
+      "workStyle": ["patient-facing", "hands-on"],
+      "questions": [
+        {
+          "id": "pt-1",
+          "question": "What type of physical therapy interests you most?",
+          "options": [
+            { "id": "pt-1-a", "label": "Sports rehabilitation", "score": 4 },
+            { "id": "pt-1-b", "label": "Orthopedic and post-surgical", "score": 4 },
+            { "id": "pt-1-c", "label": "Neurological rehabilitation", "score": 3 },
+            { "id": "pt-1-d", "label": "Pediatric therapy", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "pt-2",
+          "question": "How do you approach patient treatment?",
+          "options": [
+            { "id": "pt-2-a", "label": "Individualized treatment plans", "score": 4 },
+            { "id": "pt-2-b", "label": "Exercise-based rehabilitation", "score": 4 },
+            { "id": "pt-2-c", "label": "Manual therapy techniques", "score": 3 },
+            { "id": "pt-2-d", "label": "Patient education and home programs", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["rehabilitation", "therapeutic-exercises", "patient-motivation"]
+    },
+    {
+      "id": "graphic-designer",
+      "title": "Graphic Designer",
+      "category": "creative",
+      "sector": "arts-media",
+      "description": "Create visual designs, branding, and digital content.",
+      "requiredSkills": ["Adobe Creative Suite", "Typography", "Color Theory", "Visual Design", "Layout"],
+      "interests": ["design", "art", "creativity", "visual-communication"],
+      "salaryRange": "$40,000 - $90,000",
+      "growthPotential": "Medium",
+      "workStyle": ["creative", "independent"],
+      "questions": [
+        {
+          "id": "gd-1",
+          "question": "What type of design work interests you most?",
+          "options": [
+            { "id": "gd-1-a", "label": "Brand identity and logos", "score": 4 },
+            { "id": "gd-1-b", "label": "Print and publication design", "score": 3 },
+            { "id": "gd-1-c", "label": "Digital and web design", "score": 4 },
+            { "id": "gd-1-d", "label": "Packaging and product design", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "gd-2",
+          "question": "How do you approach design challenges?",
+          "options": [
+            { "id": "gd-2-a", "label": "Research and concept development", "score": 4 },
+            { "id": "gd-2-b", "label": "Experiment with visual ideas", "score": 4 },
+            { "id": "gd-2-c", "label": "Get feedback and iterate", "score": 3 },
+            { "id": "gd-2-d", "label": "Follow design trends", "score": 2 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["visual-design", "typography", "branding", "creative-tools"]
+    },
+    {
+      "id": "ux-designer",
+      "title": "UX Designer",
+      "category": "creative",
+      "sector": "tech",
+      "description": "Create user-centered designs for digital products and services.",
+      "requiredSkills": ["User Research", "Wireframing", "Prototyping", "Interaction Design", "Usability Testing"],
+      "interests": ["design", "user-experience", "empathy", "problem-solving"],
+      "salaryRange": "$60,000 - $130,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "research-oriented"],
+      "questions": [
+        {
+          "id": "ux-1",
+          "question": "What aspect of UX interests you most?",
+          "options": [
+            { "id": "ux-1-a", "label": "User research and understanding needs", "score": 4 },
+            { "id": "ux-1-b", "label": "Interaction design and prototyping", "score": 4 },
+            { "id": "ux-1-c", "label": "Visual design and aesthetics", "score": 3 },
+            { "id": "ux-1-d", "label": "Usability testing and iteration", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ux-2",
+          "question": "How do you approach designing for users?",
+          "options": [
+            { "id": "ux-2-a", "label": "Start with user research", "score": 4 },
+            { "id": "ux-2-b", "label": "Create personas and journey maps", "score": 4 },
+            { "id": "ux-2-c", "label": "Iterate based on testing", "score": 4 },
+            { "id": "ux-2-d", "label": "Balance business goals with user needs", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["user-research", "wireframing", "prototyping", "usability"]
+    },
+    {
+      "id": "ui-designer",
+      "title": "UI Designer",
+      "category": "creative",
+      "sector": "tech",
+      "description": "Design visual interfaces for applications and websites.",
+      "requiredSkills": ["Visual Design", "UI Tools", "Typography", "Color Theory", "Responsive Design"],
+      "interests": ["design", "visuals", "interfaces", "aesthetics"],
+      "salaryRange": "$60,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "detail-oriented"],
+      "questions": [
+        {
+          "id": "ui-1",
+          "question": "What UI design work interests you most?",
+          "options": [
+            { "id": "ui-1-a", "label": "Mobile app interfaces", "score": 4 },
+            { "id": "ui-1-b", "label": "Web applications", "score": 4 },
+            { "id": "ui-1-c", "label": "Dashboard and data visualization", "score": 3 },
+            { "id": "ui-1-d", "label": "Design systems and components", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ui-2",
+          "question": "How do you ensure good UI design?",
+          "options": [
+            { "id": "ui-2-a", "label": "Consistency in design language", "score": 4 },
+            { "id": "ui-2-b", "label": "Accessibility and inclusivity", "score": 4 },
+            { "id": "ui-2-c", "label": "Visual hierarchy and readability", "score": 4 },
+            { "id": "ui-2-d", "label": "Responsiveness across devices", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["visual-design", "typography", "color-theory", "accessibility"]
+    },
+    {
+      "id": "video-editor",
+      "title": "Video Editor",
+      "category": "creative",
+      "sector": "film-advertisement",
+      "description": "Edit video footage for films, TV, commercials, and digital content.",
+      "requiredSkills": ["Video Editing Software", "Storytelling", "Motion Graphics", "Color Grading", "Audio"],
+      "interests": ["film", "video", "storytelling", "editing"],
+      "salaryRange": "$40,000 - $100,000",
+      "growthPotential": "Medium",
+      "workStyle": ["creative", "technical"],
+      "questions": [
+        {
+          "id": "ve-1",
+          "question": "What type of video editing interests you most?",
+          "options": [
+            { "id": "ve-1-a", "label": "Feature films and cinema", "score": 4 },
+            { "id": "ve-1-b", "label": "Commercials and advertisements", "score": 4 },
+            { "id": "ve-1-c", "label": "Documentaries", "score": 3 },
+            { "id": "ve-1-d", "label": "YouTube and digital content", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ve-2",
+          "question": "How do you approach editing a video?",
+          "options": [
+            { "id": "ve-2-a", "label": "Focus on storytelling and pacing", "score": 4 },
+            { "id": "ve-2-b", "label": "Create visual flow and rhythm", "score": 4 },
+            { "id": "ve-2-c", "label": "Add motion graphics and effects", "score": 3 },
+            { "id": "ve-2-d", "label": "Perfect color and audio", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["editing-software", "storytelling", "visual-effects", "audio"]
+    },
+    {
+      "id": "film-director",
+      "title": "Film Director",
+      "category": "creative",
+      "sector": "film-advertisement",
+      "description": "Lead creative aspects of film and video productions.",
+      "requiredSkills": ["Filmmaking", "Creative Vision", "Leadership", "Storytelling", "Production Management"],
+      "interests": ["film", "storytelling", "creative-direction", "cinema"],
+      "salaryRange": "$50,000 - $500,000+",
+      "growthPotential": "Variable",
+      "workStyle": ["creative-leadership", "collaborative"],
+      "questions": [
+        {
+          "id": "fd-1",
+          "question": "What type of filmmaking interests you most?",
+          "options": [
+            { "id": "fd-1-a", "label": "Feature films and cinema", "score": 4 },
+            { "id": "fd-1-b", "label": "Documentaries", "score": 3 },
+            { "id": "fd-1-c", "label": "Commercials and music videos", "score": 4 },
+            { "id": "fd-1-d", "label": "TV and streaming series", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "fd-2",
+          "question": "How do you lead a production team?",
+          "options": [
+            { "id": "fd-2-a", "label": "Clear creative vision and direction", "score": 4 },
+            { "id": "fd-2-b", "label": "Collaborative and open to ideas", "score": 4 },
+            { "id": "fd-2-c", "label": "Decisive and action-oriented", "score": 3 },
+            { "id": "fd-2-d", "label": "Mentor and inspire actors", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["creative-vision", "storytelling", "leadership", "production"]
+    },
+    {
+      "id": "advertising-creative",
+      "title": "Advertising Creative",
+      "category": "creative",
+      "sector": "film-advertisement",
+      "description": "Create advertising concepts and campaigns for brands.",
+      "requiredSkills": ["Creative Writing", "Concept Development", "Brand Strategy", "Visual Design", "Presentation"],
+      "interests": ["advertising", "creativity", "branding", "marketing"],
+      "salaryRange": "$50,000 - $150,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "deadline-driven"],
+      "questions": [
+        {
+          "id": "ac-1",
+          "question": "What type of advertising interests you most?",
+          "options": [
+            { "id": "ac-1-a", "label": "TV and video commercials", "score": 4 },
+            { "id": "ac-1-b", "label": "Digital and social media", "score": 4 },
+            { "id": "ac-1-c", "label": "Print and outdoor", "score": 3 },
+            { "id": "ac-1-d", "label": "Brand campaigns", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ac-2",
+          "question": "How do you develop creative concepts?",
+          "options": [
+            { "id": "ac-2-a", "label": "Start with consumer insights", "score": 4 },
+            { "id": "ac-2-b", "label": "Brainstorm and ideate freely", "score": 4 },
+            { "id": "ac-2-c", "label": "Focus on big ideas", "score": 4 },
+            { "id": "ac-2-d", "label": "Push creative boundaries", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["creative-writing", "concept-development", "branding", "marketing"]
+    },
+    {
+      "id": "photographer",
+      "title": "Photographer",
+      "category": "creative",
+      "sector": "arts-media",
+      "description": "Capture photographs for various purposes including portraits, events, and commercial work.",
+      "requiredSkills": ["Photography", "Photo Editing", "Lighting", "Composition", "Equipment"],
+      "interests": ["photography", "art", "visuals", "storytelling"],
+      "salaryRange": "$30,000 - $150,000",
+      "growthPotential": "Variable",
+      "workStyle": ["creative", "independent"],
+      "questions": [
+        {
+          "id": "ph-1",
+          "question": "What type of photography interests you most?",
+          "options": [
+            { "id": "ph-1-a", "label": "Portrait and fashion", "score": 4 },
+            { "id": "ph-1-b", "label": "Event and wedding", "score": 3 },
+            { "id": "ph-1-c", "label": "Commercial and product", "score": 4 },
+            { "id": "ph-1-d", "label": "Fine art and conceptual", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ph-2",
+          "question": "How do you approach a photo shoot?",
+          "options": [
+            { "id": "ph-2-a", "label": "Plan and prepare extensively", "score": 3 },
+            { "id": "ph-2-b", "label": "Capture candid moments", "score": 4 },
+            { "id": "ph-2-c", "label": "Control lighting and composition", "score": 4 },
+            { "id": "ph-2-d", "label": "Direct and pose subjects", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["photography", "lighting", "composition", "post-processing"]
+    },
+    {
+      "id": "animator",
+      "title": "Animator",
+      "category": "creative",
+      "sector": "film-advertisement",
+      "description": "Create animated content for films, TV, games, and digital media.",
+      "requiredSkills": ["Animation Software", "Drawing", "Storyboarding", "Timing", "Motion Graphics"],
+      "interests": ["animation", "drawing", "film", "creativity"],
+      "salaryRange": "$45,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "technical"],
+      "questions": [
+        {
+          "id": "an-1",
+          "question": "What type of animation interests you most?",
+          "options": [
+            { "id": "an-1-a", "label": "2D traditional animation", "score": 3 },
+            { "id": "an-1-b", "label": "3D CGI animation", "score": 4 },
+            { "id": "an-1-c", "label": "Motion graphics", "score": 4 },
+            { "id": "an-1-d", "label": "Stop motion", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "an-2",
+          "question": "How do you approach animation?",
+          "options": [
+            { "id": "an-2-a", "label": "Storyboarding and planning", "score": 4 },
+            { "id": "an-2-b", "label": "Focus on character movement", "score": 4 },
+            { "id": "an-2-c", "label": "Attention to detail", "score": 4 },
+            { "id": "an-2-d", "label": "Experimentation and innovation", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["animation-software", "drawing", "storytelling", "timing"]
+    },
+    {
+      "id": "journalist",
+      "title": "Journalist",
+      "category": "creative",
+      "sector": "arts-media",
+      "description": "Research, write, and report news and stories for various media.",
+      "requiredSkills": ["Writing", "Research", "Interviewing", "Critical Thinking", "Communication"],
+      "interests": ["news", "writing", "storytelling", "current-events"],
+      "salaryRange": "$35,000 - $150,000",
+      "growthPotential": "Medium",
+      "workStyle": ["deadline-driven", "independent"],
+      "questions": [
+        {
+          "id": "jo-1",
+          "question": "What type of journalism interests you most?",
+          "options": [
+            { "id": "jo-1-a", "label": "Breaking news and reporting", "score": 4 },
+            { "id": "jo-1-b", "label": "Investigative journalism", "score": 4 },
+            { "id": "jo-1-c", "label": "Feature and human interest", "score": 3 },
+            { "id": "jo-1-d", "label": "Digital and multimedia", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "jo-2",
+          "question": "How do you approach a story?",
+          "options": [
+            { "id": "jo-2-a", "label": "Thorough research and verification", "score": 4 },
+            { "id": "jo-2-b", "label": "Multiple source interviews", "score": 4 },
+            { "id": "jo-2-c", "label": "Compelling storytelling", "score": 4 },
+            { "id": "jo-2-d", "label": "Balanced and objective reporting", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["writing", "research", "interviewing", "news-judgment"]
+    },
+    {
+      "id": "content-creator",
+      "title": "Content Creator",
+      "category": "creative",
+      "sector": "arts-media",
+      "description": "Create digital content for social media, blogs, and online platforms.",
+      "requiredSkills": ["Content Writing", "Social Media", "Video Production", "Audience Engagement", "Branding"],
+      "interests": ["content", "social-media", "creativity", "digital"],
+      "salaryRange": "$30,000 - $200,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "independent"],
+      "questions": [
+        {
+          "id": "cc-1",
+          "question": "What type of content creation interests you most?",
+          "options": [
+            { "id": "cc-1-a", "label": "Video content (YouTube, TikTok)", "score": 4 },
+            { "id": "cc-1-b", "label": "Written content (blogs, articles)", "score": 3 },
+            { "id": "cc-1-c", "label": "Live streaming and engagement", "score": 4 },
+            { "id": "cc-1-d", "label": "Podcast and audio", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "cc-2",
+          "question": "How do you grow your audience?",
+          "options": [
+            { "id": "cc-2-a", "label": "Consistent posting schedule", "score": 4 },
+            { "id": "cc-2-b", "label": "Engage with community", "score": 4 },
+            { "id": "cc-2-c", "label": "Collaborate with others", "score": 3 },
+            { "id": "cc-2-d", "label": "Create viral and trending content", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.3
+        }
+      ],
+      "interviewFocus": ["content-creation", "social-media", "audience-engagement", "branding"]
+    },
+    {
+      "id": "logistics-manager",
+      "title": "Logistics Manager",
+      "category": "business",
+      "sector": "logistics-supply",
+      "description": "Manage supply chain operations, transportation, and inventory.",
+      "requiredSkills": ["Supply Chain", "Operations Management", "Transportation", "Forecasting", "Leadership"],
+      "interests": ["logistics", "operations", "optimization", "business"],
+      "salaryRange": "$60,000 - $130,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "leadership"],
+      "questions": [
+        {
+          "id": "lm-1",
+          "question": "What aspect of logistics interests you most?",
+          "options": [
+            { "id": "lm-1-a", "label": "Transportation and distribution", "score": 4 },
+            { "id": "lm-1-b", "label": "Warehouse and inventory management", "score": 3 },
+            { "id": "lm-1-c", "label": "Supply chain optimization", "score": 4 },
+            { "id": "lm-1-d", "label": "Procurement and sourcing", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "lm-2",
+          "question": "How do you optimize logistics operations?",
+          "options": [
+            { "id": "lm-2-a", "label": "Data analysis and metrics", "score": 4 },
+            { "id": "lm-2-b", "label": "Technology and automation", "score": 4 },
+            { "id": "lm-2-c", "label": "Process improvement (Lean, Six Sigma)", "score": 4 },
+            { "id": "lm-2-d", "label": "Supplier relationship management", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["supply-chain", "operations", "transportation", "forecasting"]
+    },
+    {
+      "id": "supply-chain-analyst",
+      "title": "Supply Chain Analyst",
+      "category": "business",
+      "sector": "logistics-supply",
+      "description": "Analyze and optimize supply chain processes and operations.",
+      "requiredSkills": ["Data Analysis", "Excel", "Supply Chain Concepts", "Forecasting", "Problem Solving"],
+      "interests": ["analytics", "supply-chain", "optimization", "business"],
+      "salaryRange": "$55,000 - $100,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "detail-oriented"],
+      "questions": [
+        {
+          "id": "sca-1",
+          "question": "What supply chain area interests you most?",
+          "options": [
+            { "id": "sca-1-a", "label": "Demand forecasting", "score": 4 },
+            { "id": "sca-1-b", "label": "Inventory optimization", "score": 4 },
+            { "id": "sca-1-c", "label": "Supplier analysis", "score": 3 },
+            { "id": "sca-1-d", "label": "Transportation planning", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "sca-2",
+          "question": "How do you analyze supply chain data?",
+          "options": [
+            { "id": "sca-2-a", "label": "Statistical analysis and modeling", "score": 4 },
+            { "id": "sca-2-b", "label": "Excel and data visualization", "score": 4 },
+            { "id": "sca-2-c", "label": "Supply chain software tools", "score": 3 },
+            { "id": "sca-2-d", "label": "Root cause analysis", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["data-analysis", "forecasting", "inventory", "optimization"]
+    },
+    {
+      "id": "warehouse-manager",
+      "title": "Warehouse Manager",
+      "category": "business",
+      "sector": "logistics-supply",
+      "description": "Manage warehouse operations, inventory, and distribution.",
+      "requiredSkills": ["Warehouse Operations", "Inventory Management", "Leadership", "Safety Compliance", "Technology"],
+      "interests": ["operations", "management", "logistics", "efficiency"],
+      "salaryRange": "$50,000 - $100,000",
+      "growthPotential": "Medium",
+      "workStyle": ["hands-on", "leadership"],
+      "questions": [
+        {
+          "id": "wm-1",
+          "question": "What warehouse operations interest you most?",
+          "options": [
+            { "id": "wm-1-a", "label": "Inventory control and accuracy", "score": 4 },
+            { "id": "wm-1-b", "label": "Order fulfillment and picking", "score": 3 },
+            { "id": "wm-1-c", "label": "Receiving and shipping", "score": 3 },
+            { "id": "wm-1-d", "label": "Warehouse technology and automation", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "wm-2",
+          "question": "How do you ensure warehouse efficiency?",
+          "options": [
+            { "id": "wm-2-a", "label": "Process optimization", "score": 4 },
+            { "id": "wm-2-b", "label": "Staff training and management", "score": 4 },
+            { "id": "wm-2-c", "label": "Safety and compliance", "score": 4 },
+            { "id": "wm-2-d", "label": "Technology and systems", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["warehouse-ops", "inventory", "leadership", "safety"]
+    },
+    {
+      "id": "pilot",
+      "title": "Commercial Pilot",
+      "category": "aviation",
+      "sector": "aviation",
+      "description": "Pilot aircraft for commercial airlines or private aviation.",
+      "requiredSkills": ["Aviation Knowledge", "Navigation", "Flight Safety", "Communication", "Decision Making"],
+      "interests": ["flying", "aviation", "travel", "technology"],
+      "salaryRange": "$80,000 - $300,000",
+      "growthPotential": "High",
+      "workStyle": ["responsible", "detail-oriented"],
+      "questions": [
+        {
+          "id": "pil-1",
+          "question": "What type of flying interests you most?",
+          "options": [
+            { "id": "pil-1-a", "label": "Commercial airline flying", "score": 4 },
+            { "id": "pil-1-b", "label": "Private and charter jets", "score": 3 },
+            { "id": "pil-1-c", "label": "Cargo and freight", "score": 3 },
+            { "id": "pil-1-d", "label": "Helicopter operations", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "pil-2",
+          "question": "How do you handle in-flight emergencies?",
+          "options": [
+            { "id": "pil-2-a", "label": "Follow established procedures", "score": 4 },
+            { "id": "pil-2-b", "label": "Stay calm and focused", "score": 4 },
+            { "id": "pil-2-c", "label": "Communicate clearly with air traffic", "score": 4 },
+            { "id": "pil-2-d", "label": "Make quick decisions", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["flight-safety", "navigation", "procedures", "decision-making"]
+    },
+    {
+      "id": "air-traffic-controller",
+      "title": "Air Traffic Controller",
+      "category": "aviation",
+      "sector": "aviation",
+      "description": "Coordinate aircraft movements to maintain safe distances.",
+      "requiredSkills": ["Communication", "Multi-tasking", "Spatial Awareness", "Decision Making", "Pressure Handling"],
+      "interests": ["aviation", "coordination", "responsibility", "technology"],
+      "salaryRange": "$60,000 - $180,000",
+      "growthPotential": "High",
+      "workStyle": ["high-pressure", "detail-oriented"],
+      "questions": [
+        {
+          "id": "atc-1",
+          "question": "What type of ATC work interests you most?",
+          "options": [
+            { "id": "atc-1-a", "label": "Tower (ground and takeoff/landing)", "score": 4 },
+            { "id": "atc-1-b", "label": "Approach control", "score": 4 },
+            { "id": "atc-1-c", "label": "Center (en-route)", "score": 3 },
+            { "id": "atc-1-d", "label": "Flight service station", "score": 2 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "atc-2",
+          "question": "How do you handle high-pressure situations?",
+          "options": [
+            { "id": "atc-2-a", "label": "Prioritize and delegate tasks", "score": 4 },
+            { "id": "atc-2-b", "label": "Stay calm and methodical", "score": 4 },
+            { "id": "atc-2-c", "label": "Communicate clearly and concisely", "score": 4 },
+            { "id": "atc-2-d", "label": "Trust your training", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["communication", "multi-tasking", "spatial-awareness", "decision-making"]
+    },
+    {
+      "id": "aircraft-mechanic",
+      "title": "Aircraft Mechanic",
+      "category": "aviation",
+      "sector": "aviation",
+      "description": "Maintain and repair aircraft to ensure safe operation.",
+      "requiredSkills": ["Aircraft Maintenance", "Technical Knowledge", "Inspection", "Troubleshooting", "Documentation"],
+      "interests": ["aviation", "mechanics", "aircraft", "technical"],
+      "salaryRange": "$50,000 - $100,000",
+      "growthPotential": "Medium",
+      "workStyle": ["hands-on", "detail-oriented"],
+      "questions": [
+        {
+          "id": "am-1",
+          "question": "What type of aircraft maintenance interests you most?",
+          "options": [
+            { "id": "am-1-a", "label": "Line maintenance (routine checks)", "score": 3 },
+            { "id": "am-1-b", "label": "Heavy maintenance and inspections", "score": 4 },
+            { "id": "am-1-c", "label": "Avionics and electrical systems", "score": 4 },
+            { "id": "am-1-d", "label": "Engine repair and overhaul", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "am-2",
+          "question": "How do you approach aircraft maintenance?",
+          "options": [
+            { "id": "am-2-a", "label": "Follow procedures meticulously", "score": 4 },
+            { "id": "am-2-b", "label": "Thorough inspection and documentation", "score": 4 },
+            { "id": "am-2-c", "label": "Troubleshoot systematically", "score": 4 },
+            { "id": "am-2-d", "label": "Prioritize safety above all", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["maintenance", "inspection", "troubleshooting", "safety"]
+    },
+    {
+      "id": "research-scientist",
+      "title": "Research Scientist",
+      "category": "science",
+      "sector": "science",
+      "description": "Conduct research and experiments to advance scientific knowledge.",
+      "requiredSkills": ["Research Methods", "Data Analysis", "Scientific Writing", "Laboratory Techniques", "Critical Thinking"],
+      "interests": ["research", "science", "discovery", "experimentation"],
+      "salaryRange": "$60,000 - $200,000",
+      "growthPotential": "High",
+      "workStyle": ["research-oriented", "analytical"],
+      "questions": [
+        {
+          "id": "rs-1",
+          "question": "What field of science interests you most?",
+          "options": [
+            { "id": "rs-1-a", "label": "Physics (theoretical or applied)", "score": 4 },
+            { "id": "rs-1-b", "label": "Chemistry (organic, inorganic, physical)", "score": 4 },
+            { "id": "rs-1-c", "label": "Biology (molecular, cellular, ecology)", "score": 4 },
+            { "id": "rs-1-d", "label": "Earth and environmental science", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "rs-2",
+          "question": "How do you approach research?",
+          "options": [
+            { "id": "rs-2-a", "label": "Hypothesis-driven experimentation", "score": 4 },
+            { "id": "rs-2-b", "label": "Data analysis and modeling", "score": 4 },
+            { "id": "rs-2-c", "label": "Literature review and theory", "score": 3 },
+            { "id": "rs-2-d", "label": "Collaboration with other scientists", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["research-methods", "data-analysis", "scientific-writing", "laboratory"]
+    },
+    {
+      "id": "data-researcher",
+      "title": "Data Researcher",
+      "category": "science",
+      "sector": "science",
+      "description": "Analyze data and conduct research to derive insights and conclusions.",
+      "requiredSkills": ["Statistics", "Data Analysis", "Programming", "Research Methods", "Visualization"],
+      "interests": ["data", "analytics", "research", "patterns"],
+      "salaryRange": "$55,000 - $130,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "detail-oriented"],
+      "questions": [
+        {
+          "id": "dr-1",
+          "question": "What type of data research interests you most?",
+          "options": [
+            { "id": "dr-1-a", "label": "Quantitative analysis", "score": 4 },
+            { "id": "dr-1-b", "label": "Qualitative research", "score": 3 },
+            { "id": "dr-1-c", "label": "Machine learning and predictive", "score": 4 },
+            { "id": "dr-1-d", "label": "Business intelligence", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "dr-2",
+          "question": "How do you approach data analysis?",
+          "options": [
+            { "id": "dr-2-a", "label": "Start with clear research questions", "score": 4 },
+            { "id": "dr-2-b", "label": "Explore data thoroughly", "score": 4 },
+            { "id": "dr-2-c", "label": "Apply appropriate statistical methods", "score": 4 },
+            { "id": "dr-2-d", "label": "Communicate findings clearly", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["statistics", "data-analysis", "research-methods", "visualization"]
+    },
+    {
+      "id": "environmental-scientist",
+      "title": "Environmental Scientist",
+      "category": "science",
+      "sector": "science",
+      "description": "Study and solve environmental problems through research and analysis.",
+      "requiredSkills": ["Environmental Science", "Field Research", "Data Analysis", "Regulations", "GIS"],
+      "interests": ["environment", "sustainability", "conservation", "science"],
+      "salaryRange": "$50,000 - $100,000",
+      "growthPotential": "High",
+      "workStyle": ["field-oriented", "analytical"],
+      "questions": [
+        {
+          "id": "es-1",
+          "question": "What environmental area interests you most?",
+          "options": [
+            { "id": "es-1-a", "label": "Climate change and sustainability", "score": 4 },
+            { "id": "es-1-b", "label": "Water quality and resources", "score": 3 },
+            { "id": "es-1-c", "label": "Wildlife and conservation", "score": 4 },
+            { "id": "es-1-d", "label": "Pollution and remediation", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "es-2",
+          "question": "How do you approach environmental research?",
+          "options": [
+            { "id": "es-2-a", "label": "Field sampling and monitoring", "score": 4 },
+            { "id": "es-2-b", "label": "Lab analysis and testing", "score": 3 },
+            { "id": "es-2-c", "label": "Data modeling and prediction", "score": 4 },
+            { "id": "es-2-d", "label": "Policy and regulatory analysis", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["environmental-science", "field-research", "data-analysis", "regulations"]
+    },
+    {
+      "id": "chemist",
+      "title": "Chemist",
+      "category": "science",
+      "sector": "science",
+      "description": "Study chemical substances and develop new materials and products.",
+      "requiredSkills": ["Chemistry", "Laboratory Skills", "Analysis", "Research", "Safety"],
+      "interests": ["chemistry", "research", "laboratory", "innovation"],
+      "salaryRange": "$50,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["laboratory", "detail-oriented"],
+      "questions": [
+        {
+          "id": "ch-1",
+          "question": "What area of chemistry interests you most?",
+          "options": [
+            { "id": "ch-1-a", "label": "Organic chemistry (synthesis)", "score": 4 },
+            { "id": "ch-1-b", "label": "Analytical chemistry", "score": 4 },
+            { "id": "ch-1-c", "label": "Physical chemistry", "score": 3 },
+            { "id": "ch-1-d", "label": "Biochemistry", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ch-2",
+          "question": "How do you approach chemical research?",
+          "options": [
+            { "id": "ch-2-a", "label": "Systematic experimentation", "score": 4 },
+            { "id": "ch-2-b", "label": "Literature review and planning", "score": 4 },
+            { "id": "ch-2-c", "label": "Safety-first approach", "score": 4 },
+            { "id": "ch-2-d", "label": "Innovative methods", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["chemistry", "laboratory", "analysis", "safety"]
+    },
+    {
+      "id": "physicist",
+      "title": "Physicist",
+      "category": "science",
+      "sector": "science",
+      "description": "Study matter, energy, and the fundamental laws of the universe.",
+      "requiredSkills": ["Physics", "Mathematical Modeling", "Research", "Programming", "Laboratory"],
+      "interests": ["physics", "theory", "research", "innovation"],
+      "salaryRange": "$60,000 - $200,000",
+      "growthPotential": "High",
+      "workStyle": ["theoretical", "analytical"],
+      "questions": [
+        {
+          "id": "ph-1",
+          "question": "What area of physics interests you most?",
+          "options": [
+            { "id": "ph-1-a", "label": "Theoretical physics", "score": 4 },
+            { "id": "ph-1-b", "label": "Experimental physics", "score": 4 },
+            { "id": "ph-1-c", "label": "Applied physics (engineering)", "score": 4 },
+            { "id": "ph-1-d", "label": "Astrophysics and cosmology", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ph-2",
+          "question": "How do you approach physics problems?",
+          "options": [
+            { "id": "ph-2-a", "label": "Mathematical modeling", "score": 4 },
+            { "id": "ph-2-b", "label": "Theoretical analysis", "score": 4 },
+            { "id": "ph-2-c", "label": "Experimental verification", "score": 4 },
+            { "id": "ph-2-d", "label": "Computational simulation", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["physics", "mathematics", "research", "modeling"]
+    },
+    {
+      "id": "biologist",
+      "title": "Biologist",
+      "category": "science",
+      "sector": "science",
+      "description": "Study living organisms and their interactions with the environment.",
+      "requiredSkills": ["Biology", "Laboratory Skills", "Research", "Data Analysis", "Fieldwork"],
+      "interests": ["biology", "life-sciences", "research", "nature"],
+      "salaryRange": "$45,000 - $150,000",
+      "growthPotential": "High",
+      "workStyle": ["research-oriented", "field-oriented"],
+      "questions": [
+        {
+          "id": "bio-1",
+          "question": "What area of biology interests you most?",
+          "options": [
+            { "id": "bio-1-a", "label": "Molecular and cell biology", "score": 4 },
+            { "id": "bio-1-b", "label": "Ecology and evolution", "score": 3 },
+            { "id": "bio-1-c", "label": "Genetics and genomics", "score": 4 },
+            { "id": "bio-1-d", "label": "Marine biology", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "bio-2",
+          "question": "How do you approach biological research?",
+          "options": [
+            { "id": "bio-2-a", "label": "Laboratory experimentation", "score": 4 },
+            { "id": "bio-2-b", "label": "Field observation and sampling", "score": 3 },
+            { "id": "bio-2-c", "label": "Data analysis and modeling", "score": 4 },
+            { "id": "bio-2-d", "label": "Literature review and hypothesis", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["biology", "laboratory", "research", "fieldwork"]
+    },
+    {
+      "id": "neuroscientist",
+      "title": "Neuroscientist",
+      "category": "science",
+      "sector": "science",
+      "description": "Study the brain and nervous system to understand behavior and cognition.",
+      "requiredSkills": ["Neuroscience", "Research Methods", "Data Analysis", "Laboratory", "Critical Thinking"],
+      "interests": ["neuroscience", "brain", "research", "psychology"],
+      "salaryRange": "$60,000 - $250,000",
+      "growthPotential": "Very High",
+      "workStyle": ["research-oriented", "detail-oriented"],
+      "questions": [
+        {
+          "id": "ns-1",
+          "question": "What area of neuroscience interests you most?",
+          "options": [
+            { "id": "ns-1-a", "label": "Cognitive neuroscience", "score": 4 },
+            { "id": "ns-1-b", "label": "Cellular and molecular neuroscience", "score": 4 },
+            { "id": "ns-1-c", "label": "Clinical and behavioral neuroscience", "score": 4 },
+            { "id": "ns-1-d", "label": "Computational neuroscience", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ns-2",
+          "question": "How do you approach neuroscience research?",
+          "options": [
+            { "id": "ns-2-a", "label": "Brain imaging techniques (fMRI, EEG)", "score": 4 },
+            { "id": "ns-2-b", "label": "Electrophysiology", "score": 3 },
+            { "id": "ns-2-c", "label": "Molecular and genetic methods", "score": 4 },
+            { "id": "ns-2-d", "label": "Computational modeling", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["neuroscience", "research-methods", "data-analysis", "brain-imaging"]
+    },
+    {
+      "id": "astronomer",
+      "title": "Astronomer",
+      "category": "science",
+      "sector": "space-tech",
+      "description": "Study celestial objects and phenomena in the universe.",
+      "requiredSkills": ["Astronomy", "Physics", "Data Analysis", "Telescope Operations", "Programming"],
+      "interests": ["astronomy", "space", "stars", "research"],
+      "salaryRange": "$60,000 - $200,000",
+      "growthPotential": "High",
+      "workStyle": ["research-oriented", "observational"],
+      "questions": [
+        {
+          "id": "ast-1",
+          "question": "What area of astronomy interests you most?",
+          "options": [
+            { "id": "ast-1-a", "label": "Observational astronomy", "score": 4 },
+            { "id": "ast-1-b", "label": "Theoretical astrophysics", "score": 4 },
+            { "id": "ast-1-c", "label": "Cosmology", "score": 4 },
+            { "id": "ast-1-d", "label": "Planetary science", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "ast-2",
+          "question": "How do you conduct astronomical research?",
+          "options": [
+            { "id": "ast-2-a", "label": "Telescope observations", "score": 4 },
+            { "id": "ast-2-b", "label": "Data analysis and imaging", "score": 4 },
+            { "id": "ast-2-c", "label": "Theoretical modeling", "score": 4 },
+            { "id": "ast-2-d", "label": "Space mission data", "score": 3 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["astronomy", "physics", "data-analysis", "telescope"]
+    },
+    {
+      "id": "product-manager",
+      "title": "Product Manager",
+      "category": "business",
+      "sector": "tech",
+      "description": "Lead product development from concept to launch.",
+      "requiredSkills": ["Product Strategy", "User Research", "Roadmapping", "Stakeholder Management", "Data Analysis"],
+      "interests": ["product", "strategy", "user-needs", "business"],
+      "salaryRange": "$80,000 - $180,000",
+      "growthPotential": "Very High",
+      "workStyle": ["leadership", "collaborative"],
+      "questions": [
+        {
+          "id": "pm-1",
+          "question": "What type of product management interests you most?",
+          "options": [
+            { "id": "pm-1-a", "label": "Consumer products", "score": 4 },
+            { "id": "pm-1-b", "label": "Enterprise and B2B products", "score": 4 },
+            { "id": "pm-1-c", "label": "Technical products", "score": 4 },
+            { "id": "pm-1-d", "label": "Mobile applications", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "pm-2",
+          "question": "How do you approach product development?",
+          "options": [
+            { "id": "pm-2-a", "label": "User-centered design", "score": 4 },
+            { "id": "pm-2-b", "label": "Data-driven decisions", "score": 4 },
+            { "id": "pm-2-c", "label": "Agile and iterative", "score": 4 },
+            { "id": "pm-2-d", "label": "Cross-functional leadership", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["product-strategy", "user-research", "roadmapping", "leadership"]
+    },
+    {
+      "id": "marketing-manager",
+      "title": "Marketing Manager",
+      "category": "business",
+      "sector": "business",
+      "description": "Plan and execute marketing strategies to drive growth.",
+      "requiredSkills": ["Marketing Strategy", "Digital Marketing", "Analytics", "Brand Management", "Content"],
+      "interests": ["marketing", "creativity", "strategy", "business"],
+      "salaryRange": "$60,000 - $150,000",
+      "growthPotential": "High",
+      "workStyle": ["creative", "strategic"],
+      "questions": [
+        {
+          "id": "mm-1",
+          "question": "What marketing area interests you most?",
+          "options": [
+            { "id": "mm-1-a", "label": "Digital marketing and SEO", "score": 4 },
+            { "id": "mm-1-b", "label": "Content and social media marketing", "score": 4 },
+            { "id": "mm-1-c", "label": "Brand and creative marketing", "score": 4 },
+            { "id": "mm-1-d", "label": "Performance marketing and analytics", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "mm-2",
+          "question": "How do you measure marketing success?",
+          "options": [
+            { "id": "mm-2-a", "label": "ROI and conversion metrics", "score": 4 },
+            { "id": "mm-2-b", "label": "Brand awareness and sentiment", "score": 3 },
+            { "id": "mm-2-c", "label": "Customer engagement and loyalty", "score": 4 },
+            { "id": "mm-2-d", "label": "Growth and retention metrics", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["marketing-strategy", "digital-marketing", "analytics", "branding"]
+    },
+    {
+      "id": "accountant",
+      "title": "Accountant",
+      "category": "finance",
+      "sector": "business",
+      "description": "Prepare and examine financial records.",
+      "requiredSkills": ["Accounting", "Financial Analysis", "Tax", "Auditing", "Software"],
+      "interests": ["finance", "numbers", "accuracy", "business"],
+      "salaryRange": "$50,000 - $120,000",
+      "growthPotential": "High",
+      "workStyle": ["detail-oriented", "analytical"],
+      "questions": [
+        {
+          "id": "acc-1",
+          "question": "What area of accounting interests you most?",
+          "options": [
+            { "id": "acc-1-a", "label": "Public accounting (audit, tax)", "score": 4 },
+            { "id": "acc-1-b", "label": "Corporate accounting", "score": 3 },
+            { "id": "acc-1-c", "label": "Management accounting", "score": 4 },
+            { "id": "acc-1-d", "label": "Forensic accounting", "score": 3 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "acc-2",
+          "question": "How do you ensure financial accuracy?",
+          "options": [
+            { "id": "acc-2-a", "label": "Double-check all calculations", "score": 4 },
+            { "id": "acc-2-b", "label": "Use accounting software effectively", "score": 4 },
+            { "id": "acc-2-c", "label": "Follow accounting standards", "score": 4 },
+            { "id": "acc-2-d", "label": "Reconcile accounts regularly", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["accounting", "financial-analysis", "tax", "auditing"]
+    },
+    {
+      "id": "financial-analyst",
+      "title": "Financial Analyst",
+      "category": "finance",
+      "sector": "business",
+      "description": "Analyze financial data and provide investment recommendations.",
+      "requiredSkills": ["Financial Modeling", "Excel", "Data Analysis", "Investment Analysis", "Communication"],
+      "interests": ["finance", "investments", "analytics", "markets"],
+      "salaryRange": "$60,000 - $150,000",
+      "growthPotential": "High",
+      "workStyle": ["analytical", "detail-oriented"],
+      "questions": [
+        {
+          "id": "fa-1",
+          "question": "What type of financial analysis interests you most?",
+          "options": [
+            { "id": "fa-1-a", "label": "Equity research", "score": 4 },
+            { "id": "fa-1-b", "label": "Corporate finance", "score": 4 },
+            { "id": "fa-1-c", "label": "Quantitative analysis", "score": 3 },
+            { "id": "fa-1-d", "label": "Risk management", "score": 4 }
+          ],
+          "traitCategory": "interests",
+          "weight": 1.5
+        },
+        {
+          "id": "fa-2",
+          "question": "How do you approach financial analysis?",
+          "options": [
+            { "id": "fa-2-a", "label": "Build detailed financial models", "score": 4 },
+            { "id": "fa-2-b", "label": "Conduct thorough research", "score": 4 },
+            { "id": "fa-2-c", "label": "Use data visualization", "score": 3 },
+            { "id": "fa-2-d", "label": "Present actionable insights", "score": 4 }
+          ],
+          "traitCategory": "skills",
+          "weight": 1.5
+        }
+      ],
+      "interviewFocus": ["financial-modeling", "data-analysis", "investment", "research"]
+    }
+  ],
+  "sectors": [
+    { "id": "tech", "name": "Technology", "icon": "💻", "description": "Software, IT, and digital technology", "keywords": ["coding", "programming", "software", "computer", "ai", "data", "internet", "app", "web", "digital", "tech"] },
+    { "id": "mechanical", "name": "Mechanical", "icon": "⚙️", "description": "Machines, vehicles, and mechanical systems", "keywords": ["machines", "mechanical", "engine", "cars", "vehicles", "design", "mfg", "manufacturing"] },
+    { "id": "manufacturing", "name": "Manufacturing", "icon": "🏭", "description": "Production, factory, and industrial operations", "keywords": ["factory", "production", "manufacturing", "industrial", "assembly", "process", "quality"] },
+    { "id": "aviation", "name": "Aviation", "icon": "✈️", "description": "Aircraft, piloting, and aviation operations", "keywords": ["plane", "aircraft", "pilot", "flying", "aviation", "airline", "airport", "flight"] },
+    { "id": "space-tech", "name": "Space & Defense", "icon": "🚀", "description": "Space exploration, defense, and aerospace", "keywords": ["space", "rocket", "satellite", "nasa", "defense", "military", "aerospace", "astronomy"] },
+    { "id": "medical", "name": "Medical & Healthcare", "icon": "🏥", "description": "Healthcare, medicine, and medical devices", "keywords": ["medical", "health", "doctor", "nurse", "hospital", "patient", "healthcare", "medicine", "clinical"] },
+    { "id": "arts-media", "name": "Arts & Media", "icon": "🎨", "description": "Creative arts, design, and media", "keywords": ["art", "design", "creative", "photo", "media", "artist", "drawing", "visual"] },
+    { "id": "film-advertisement", "name": "Film & Advertisement", "icon": "🎬", "description": "Film, video, advertising, and entertainment", "keywords": ["film", "video", "movie", "advertising", "commercial", "director", "editor", "production"] },
+    { "id": "logistics-supply", "name": "Logistics & Supply Chain", "icon": "📦", "description": "Transportation, logistics, and supply chain", "keywords": ["logistics", "supply", "warehouse", "shipping", "transport", "freight", "inventory", "distribution"] },
+    { "id": "science", "name": "Science & Research", "icon": "🔬", "description": "Scientific research and laboratory work", "keywords": ["science", "research", "lab", "scientist", "experiment", "biology", "chemistry", "physics"] },
+    { "id": "business", "name": "Business & Management", "icon": "💼", "description": "Business operations, management, and finance", "keywords": ["business", "management", "finance", "marketing", "sales", "accounting", "manager"] },
+    { "id": "creative", "name": "Creative & Design", "icon": "🎭", "description": "Creative and design professions", "keywords": ["design", "creative", "art", "brand", "visual", "ux", "ui", "graphic"] }
+  ],
+  "categories": [
+    { "id": "technology", "name": "Technology", "icon": "💻" },
+    { "id": "engineering", "name": "Engineering", "icon": "⚙️" },
+    { "id": "medical", "name": "Healthcare", "icon": "🏥" },
+    { "id": "creative", "name": "Creative Arts", "icon": "🎨" },
+    { "id": "science", "name": "Science", "icon": "🔬" },
+    { "id": "business", "name": "Business", "icon": "💼" },
+    { "id": "aviation", "name": "Aviation", "icon": "✈️" },
+    { "id": "finance", "name": "Finance", "icon": "💰" }
+  ]
+}

@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files (contains sensitive API keys)
+backend/.env
+
+# Temporary documentation files (do not commit)
+AI_Career_Compass_Context_Documentation.md
+plans/

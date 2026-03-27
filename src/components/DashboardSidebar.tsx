@@ -11,7 +11,6 @@ import {
   TrendingUp,
   Route,
   FileText,
-  MessageCircle,
   Brain,
   Briefcase,
   CheckSquare,
@@ -32,7 +31,6 @@ const menuItems = [
   { title: "Skill Analysis", url: "/dashboard/skill-analysis", icon: TrendingUp },
   { title: "Roadmap", url: "/dashboard/roadmap", icon: Route },
   { title: "Resume Analyzer", url: "/dashboard/resume-analyzer", icon: FileText },
-  { title: "Interview Coach", url: "/dashboard/interview-coach", icon: MessageCircle },
   { title: "Job Portal", url: "/dashboard/job-portal", icon: Briefcase },
   { title: "Reports", url: "/dashboard/reports", icon: BarChart2 },
   { title: "Resources", url: "/dashboard/resources", icon: BookOpen },
@@ -114,7 +112,7 @@ export function DashboardSidebar({ collapsed = false, userSettings }: DashboardS
       <div className="p-6 border-b bg-background">
         <div className="flex items-center justify-between w-full">
           <div className={`flex items-center space-x-2 ${collapsed ? 'justify-center' : ''}`}>
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
               <Brain className="h-5 w-5 text-white" />
             </div>
             {!collapsed && <span className="font-bold text-lg text-foreground truncate">AI Career Compass</span>}

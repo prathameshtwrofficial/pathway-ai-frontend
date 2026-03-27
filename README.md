@@ -1,15 +1,87 @@
-# AI Career Compass
+# AI Career Compass 🚀
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://pathway-ai-frontend.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/prathameshtwrofficial/pathway-ai-frontend.git)
+[![MIT License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-## 🚀 Intelligent Career Guidance System
+> AI-powered career guidance platform that analyzes skills, interests, and market trends to help individuals discover their optimal career paths.
 
-AI Career Compass is a cutting-edge web application that leverages artificial intelligence and machine learning to provide personalized career guidance. Our platform analyzes user skills, interests, and market trends to help individuals discover their optimal career paths and achieve professional success.
+## 🎯 Our Mission
 
-## 🌐 Live Demo
+Empower individuals with AI-driven career insights, personalized recommendations, and real-time job market data to make informed career decisions and achieve professional success.
 
-Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](https://pathway-ai-frontend.vercel.app/)
+---
+
+## ✨ Key Features
+
+| Feature                       | Description                                                             |
+| ----------------------------- | ----------------------------------------------------------------------- |
+| 🤖 **AI Career Analysis**     | ML-powered resume parsing and career matching using Hugging Face models |
+| 📊 **Skill Gap Analysis**     | Identify missing skills and get tailored recommendations                |
+| 🗺️ **Personalized Roadmaps**  | Step-by-step career development plans with courses & milestones         |
+| 📄 **ATS Resume Analyzer**    | Optimize resumes for Applicant Tracking Systems                         |
+| 💬 **AI Interview Coach**     | Practice with intelligent chatbot for interview prep                    |
+| 💼 **Real Job Portal**        | Live job listings via Adzuna API with salary insights                   |
+| 🎯 **Career Recommendations** | Data-driven suggestions based on market trends                          |
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwind-css&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=flat&logo=shadcnui&logoColor=white)
+
+### Backend
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)
+
+### AI/ML & APIs
+
+- **Hugging Face** - NLP models for resume analysis & career matching
+- **Adzuna API** - Real-time job listings & salary data
+- **PDF.js** - Document parsing
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/prathameshtwrofficial/pathway-ai-frontend.git
+cd pathway-ai-frontend
+
+# Install dependencies
+npm install
+cd backend && npm install && cd ..
+
+# Setup environment
+cp backend/.env.example backend/.env
+# Configure: Firebase credentials, Hugging Face token, Adzuna API key
+
+# Run development servers
+npm run dev        # Frontend: http://localhost:5173
+cd backend && npm start  # Backend: http://localhost:3000
+```
+
+---
+
+## 📱 How It Works
+
+1. **Sign Up** → Create your personalized account
+2. **Career Quiz** → Take AI-powered assessment
+3. **Upload Resume** → Get ATS-optimized feedback
+4. **Explore Jobs** → Browse real-time job listings
+5. **Follow Roadmap** → Track your career journey
+6. **Practice Interviews** → Prepare with AI coach
+
+---
 
 ## 👥 Team
 
@@ -17,185 +89,26 @@ Experience AI Career Compass live at: [https://pathway-ai-frontend.vercel.app/](
 - **Kunal Mishra** - Frontend Developer & UI/UX Designer
 - **Sumit Mishra** - Backend Developer & AI/ML Engineer
 
-## ✨ Features
-
-### 🤖 AI-Powered Career Analysis
-
-- Advanced algorithms analyze resumes and user preferences
-- Machine learning models provide data-driven career suggestions
-- Personalized career path recommendations
-
-### 📊 Skill Gap Analysis
-
-- Identify missing skills required for target roles
-- Get tailored recommendations to bridge skill gaps
-- Track progress with interactive dashboards
-
-### 🗺️ Personalized Roadmaps
-
-- Step-by-step career development plans
-- Curated courses, projects, and milestones
-- Adaptive learning paths based on user progress
-
-### 📄 ATS Resume Analyzer
-
-- Optimize resumes for Applicant Tracking Systems
-- AI-powered analysis and improvement suggestions
-- Industry-standard formatting recommendations
-
-### 💬 AI Interview Coach
-
-- Practice interviews with intelligent chatbot
-- Receive personalized feedback and tips
-- Mock interview scenarios for various roles
-
-### 🎯 Career Recommendations
-
-- Data-driven career suggestions
-- Market trend analysis
-- Salary insights and job market data
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-- **React** - Modern JavaScript library for building user interfaces
-- **TypeScript** - Typed superset of JavaScript
-- **Vite** - Fast build tool and development server
-- **Tailwind CSS** - Utility-first CSS framework
-- **shadcn/ui** - Re-usable UI components built on Radix UI
-- **React Router** - Declarative routing for React
-- **React Hook Form** - Performant forms with easy validation
-- **Zod** - TypeScript-first schema validation
-- **Recharts** - Composable charting library
-- **Lucide React** - Beautiful & consistent icon toolkit
-
-### Backend
-
-- **Node.js** - JavaScript runtime built on Chrome's V8 engine
-- **Express.js** - Fast, unopinionated web framework
-- **Firebase** - Backend-as-a-Service platform
-- **JWT** - JSON Web Tokens for authentication
-
-### Development Tools
-
-- **ESLint** - Pluggable JavaScript linter
-- **PostCSS** - Tool for transforming CSS with JavaScript
-- **Autoprefixer** - PostCSS plugin to parse CSS and add vendor prefixes
-- **TypeScript ESLint** - TypeScript rules for ESLint
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm or yarn package manager
-- Git
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/prathameshtwrofficial/pathway-ai-frontend.git
-   cd pathway-ai-frontend
-   ```
-
-2. **Install frontend dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Install backend dependencies**
-
-   ```bash
-   cd backend
-   npm install
-   cd ..
-   ```
-
-4. **Set up environment variables**
-   - Copy `backend/.env.example` to `backend/.env`
-   - Configure Firebase credentials and other required variables
-   - Get API keys for:
-     - **Hugging Face** (free): https://huggingface.co/settings/tokens
-     - **Adzuna Jobs API** (free tier): https://developer.adzuna.com/
-
-5. **Start the development servers**
-
-   **Frontend:**
-
-   ```bash
-   npm run dev
-   ```
-
-   **Backend:**
-
-   ```bash
-   cd backend
-   npm start
-   ```
-
-6. **Open your browser**
-   - Frontend: [http://localhost:5173](http://localhost:5173)
-   - Backend: [http://localhost:3000](http://localhost:3000)
-
-## 📱 Usage
-
-1. **Sign Up/Login** - Create an account or sign in to access personalized features
-2. **Take Career Assessment** - Complete our AI-powered career quiz
-3. **Upload Resume** - Let our ATS analyzer optimize your resume
-4. **Explore Recommendations** - View personalized career suggestions
-5. **Follow Your Roadmap** - Access step-by-step career development plans
-6. **Practice Interviews** - Use our AI coach for interview preparation
-
-## 🚀 Latest Updates (v2.0 - Fully Functional AI Platform)
-
-This version transforms AI Career Compass into a fully functional platform with:
-
-### 🤖 Real Machine Learning Integration
-
-- **Hugging Face AI Models**: Resume analysis, career recommendations, and interview question generation using state-of-the-art NLP models
-- **Real Resume Processing**: Upload and analyze PDF/DOCX resumes with automatic text extraction and skill detection
-- **ML-Powered Career Matching**: Intelligent career recommendations based on skills and interests
-
-### 💼 Authentic Job Data
-
-- **Adzuna Job API Integration**: Real-time job listings from thousands of employers
-- **Live Job Search**: Search by keywords, location, and career paths with authentic salary data
-- **Job Market Insights**: Current market trends and salary information
-
-### 🎯 Real-World Interview Preparation
-
-- **Curated Question Database**: Industry-standard interview questions for 5+ roles (Software Engineer, Data Scientist, Product Manager, etc.)
-- **AI-Generated Questions**: Dynamic question generation using ML for personalized practice
-- **Role-Based Practice**: Select specific roles and get tailored interview scenarios
-
-### 🔧 Technical Enhancements
-
-- **Resume Upload & Analysis**: Support for PDF, DOCX, and TXT files with automatic text extraction
-- **Enhanced Assessment Scoring**: ML-powered personality and skills analysis
-- **Improved Error Handling**: Robust API fallbacks and user feedback systems
+---
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-For questions or support, please reach out to the development team or create an issue in this repository.
+```bash
+git fork → git checkout -b feature/YourFeature → git commit → git push → PR
+```
 
 ---
 
-**AI Career Compass** - Transforming careers with the power of AI. 🚀
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+**AI Career Compass** - Transforming careers with AI 🚀
+
+⭐ Star us on GitHub if you found this helpful!
+
+</div>

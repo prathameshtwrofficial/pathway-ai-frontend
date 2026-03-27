@@ -74,13 +74,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen bg-gray-800">
       <Navbar />
       
       <div className="container mx-auto px-4 py-16 flex items-center justify-center">
-        <Card className="w-full max-w-md bg-background/95 backdrop-blur border-0 shadow-xl">
+        <Card className="w-full max-w-md bg-white dark:bg-gray-800 border-0 shadow-xl">
           <CardHeader className="text-center">
-            <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
               <Brain className="h-8 w-8 text-white" />
             </div>
             <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>

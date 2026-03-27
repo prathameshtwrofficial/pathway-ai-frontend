@@ -372,7 +372,7 @@ const Landing = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 1
               </div>
               <h3 className="text-xl font-semibold mb-3">Tell Us Your Goals</h3>
@@ -388,7 +388,7 @@ const Landing = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 2
               </div>
               <h3 className="text-xl font-semibold mb-3">AI Analyzes Your Profile</h3>
@@ -404,7 +404,7 @@ const Landing = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 3
               </div>
               <h3 className="text-xl font-semibold mb-3">Get Your Roadmap</h3>
