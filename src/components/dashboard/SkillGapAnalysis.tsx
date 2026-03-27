@@ -307,11 +307,13 @@ export function SkillGapAnalysis() {
   const nearTarget = allSkills.filter(skill => skill.current >= skill.required - 10 && skill.current < skill.required);
 
   const handleFindCourses = (skillName: string) => {
-    window.open(`https://www.google.com/search?q=learn+${encodeURIComponent(skillName)}+course`, '_blank');
+    // Navigate to Resources page with skill search
+    window.location.href = '/dashboard/resources?skill=' + encodeURIComponent(skillName);
   };
 
   const handleFindJobs = (skillName: string) => {
-    window.open(`/dashboard/job-portal?search=${encodeURIComponent(skillName)}`, '_blank');
+    // Navigate to Job Portal with skill search
+    window.location.href = '/dashboard/job-portal?search=' + encodeURIComponent(skillName);
   };
 
   if (loading) {

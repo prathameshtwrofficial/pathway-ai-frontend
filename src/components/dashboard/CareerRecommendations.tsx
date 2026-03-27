@@ -319,11 +319,11 @@ export function CareerRecommendations() {
               </div>
 
               <div className="flex space-x-3 pt-4">
-                <Button variant="default" className="flex-1">
+                <Button variant="default" className="flex-1" onClick={() => navigate(`/dashboard/roadmap?career=${encodeURIComponent(career.title)}`)}>
                   <Target className="mr-2 h-4 w-4" />
                   Create Learning Path
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" onClick={() => navigate(`/dashboard/job-portal?search=${encodeURIComponent(career.title)}`)}>
                   <ExternalLink className="mr-2 h-4 w-4" />
                   View Jobs
                 </Button>

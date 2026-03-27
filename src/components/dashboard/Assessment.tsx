@@ -1984,8 +1984,16 @@ export function Assessment() {
     };
     
     const sectorKey = sectorKeyMap[sector.toLowerCase()] || sector.toLowerCase();
-    const questions = sectorQuestions[sectorKey] || defaultTechnicalQuestions;
-    setAssessmentQuestions(questions);
+    const sectorQuestionsData = sectorQuestions[sectorKey] || defaultTechnicalQuestions;
+    
+    // Shuffle questions to get fresh set each time (Fisher-Yates shuffle)
+    const shuffled = [...sectorQuestionsData];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    // Take first 5 questions for variety
+    setAssessmentQuestions(shuffled.slice(0, 5));
     setLoadingQuestions(false);
   };
 

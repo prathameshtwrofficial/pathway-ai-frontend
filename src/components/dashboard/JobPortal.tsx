@@ -81,6 +81,18 @@ export function JobPortal() {
     { value: "Ahmedabad", label: "Ahmedabad" },
   ];
 
+  // Job sector categories for sector-specific job loading
+  const jobSectors = {
+    tech: ['Software Developer', 'Full Stack Developer', 'Frontend Developer', 'Backend Developer', 'DevOps Engineer', 'Data Scientist', 'ML Engineer'],
+    data: ['Data Analyst', 'Data Engineer', 'Business Analyst', 'BI Developer', 'Analytics Manager'],
+    design: ['UI Designer', 'UX Designer', 'Product Designer', 'Graphic Designer', 'Visual Designer'],
+    marketing: ['Digital Marketing', 'SEO Specialist', 'Content Marketing', 'Social Media Manager', 'Brand Manager'],
+    finance: ['Financial Analyst', 'Investment Banking', 'Accountant', 'Financial Controller', 'Risk Analyst'],
+    healthcare: ['Healthcare Manager', 'Medical Technologist', 'Hospital Administrator', 'Clinical Research', 'Healthcare IT'],
+    education: ['Teacher', 'Education Coordinator', 'Instructional Designer', 'Training Manager', 'Academic Advisor'],
+    engineering: ['Mechanical Engineer', 'Civil Engineer', 'Electrical Engineer', 'Process Engineer', 'Quality Engineer']
+  };
+
   // Fetch matched occupations from Firestore
   useEffect(() => {
     if (!currentUser?.uid) return;
@@ -169,20 +181,32 @@ export function JobPortal() {
       const response = await fetch(`/api/jobs/search?${params.toString()}`);
       const data = await response.json();
 
-      if (response.ok && data.jobs) {
+      if (response.ok && data.jobs && data.jobs.length > 0) {
         setJobs(data.jobs);
         toast({
           title: "Jobs Found",
           description: `Found ${data.jobs.length} jobs matching your search.`,
         });
       } else {
-        throw new Error(data.error || 'Failed to fetch jobs');
+        // If no jobs from API, try a fresh search without location to get fallback jobs
+        const fallbackResponse = await fetch('/api/jobs/search?query=software');
+        const fallbackData = await fallbackResponse.json();
+        
+        if (fallbackResponse.ok && fallbackData.jobs) {
+          setJobs(fallbackData.jobs);
+          toast({
+            title: "Showing Available Jobs",
+            description: `Showing ${fallbackData.jobs.length} jobs (some may not match your exact location).`,
+          });
+        } else {
+          throw new Error('No jobs found');
+        }
       }
     } catch (error) {
       console.error("Error searching jobs:", error);
       toast({
-        title: "Error",
-        description: "Failed to search jobs. Please try again or check your connection.",
+        title: "Jobs Unavailable",
+        description: "Unable to fetch jobs at the moment. Please try again later.",
         variant: "destructive",
       });
       setJobs([]);
@@ -212,6 +236,11 @@ export function JobPortal() {
     fetchInitialJobs();
   }, []);
 
+  // Handle tab change for sector-based job search
+  useEffect(() => {
+    // This effect will be triggered when tabs change - handled via onValueChange
+  }, []);
+
   const formatDate = (dateString: string) => {
     if (!dateString) return "Recently";
     const date = new Date(dateString);
@@ -227,31 +256,42 @@ export function JobPortal() {
 
   const filterJobsByCategory = (category: string, jobsToFilter: Job[]) => {
     if (category === "all") return jobsToFilter;
+    
+    // For sector-specific tabs, fetch fresh jobs from API instead of filtering
+    if (['tech', 'data', 'design', 'marketing', 'finance', 'healthcare', 'education', 'engineering'].includes(category)) {
+      // Return empty array to trigger fresh search for sector
+      return [];
+    }
+    
     if (category === "remote") return jobsToFilter.filter(job => 
       job.location.toLowerCase().includes("remote") || 
       job.location.toLowerCase().includes("work from home")
     );
-    if (category === "tech") return jobsToFilter.filter(job => 
-      ["software", "developer", "engineer", "data", "ai", "ml", "cloud", "devops", "javascript", "python", "java", "react"].some(
-        kw => job.title.toLowerCase().includes(kw) || job.description.toLowerCase().includes(kw)
-      )
-    );
-    if (category === "design") return jobsToFilter.filter(job => 
-      ["designer", "ux", "ui", "creative", "product", "figma", "sketch"].some(
-        kw => job.title.toLowerCase().includes(kw) || job.description.toLowerCase().includes(kw)
-      )
-    );
-    if (category === "marketing") return jobsToFilter.filter(job => 
-      ["marketing", "seo", "content", "brand", "digital", "social"].some(
-        kw => job.title.toLowerCase().includes(kw) || job.description.toLowerCase().includes(kw)
-      )
-    );
-    if (category === "finance") return jobsToFilter.filter(job => 
-      ["finance", "financial", "analyst", "accounting", "banking"].some(
-        kw => job.title.toLowerCase().includes(kw) || job.description.toLowerCase().includes(kw)
-      )
-    );
     return jobsToFilter;
+  };
+
+  // Handle sector-based job search
+  const handleSectorSearch = async (sector: string) => {
+    setLoading(true);
+    try {
+      const searchRoles = jobSectors[sector as keyof typeof jobSectors] || ['Developer'];
+      const query = searchRoles.slice(0, 2).join(' OR ');
+      
+      const response = await fetch(`/api/jobs/search?query=${encodeURIComponent(query)}`);
+      const data = await response.json();
+      
+      if (response.ok && data.jobs) {
+        setJobs(data.jobs);
+        toast({
+          title: `${sector.charAt(0).toUpperCase() + sector.slice(1)} Jobs`,
+          description: `Found ${data.jobs.length} jobs in ${sector} sector.`,
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching sector jobs:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -356,14 +396,18 @@ export function JobPortal() {
             </div>
           )}
 
-          <Tabs defaultValue="all" className="w-full">
+          <Tabs defaultValue="all" className="w-full" onValueChange={(value) => {
+            if (['tech', 'data', 'design', 'finance', 'marketing', 'healthcare', 'education', 'engineering'].includes(value)) {
+              handleSectorSearch(value);
+            }
+          }}>
             <TabsList className="mb-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-1 rounded-lg">
               <TabsTrigger value="recommended" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">For You</TabsTrigger>
               <TabsTrigger value="all" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">All Jobs</TabsTrigger>
               <TabsTrigger value="remote" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Remote</TabsTrigger>
               <TabsTrigger value="tech" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Tech</TabsTrigger>
+              <TabsTrigger value="data" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Data</TabsTrigger>
               <TabsTrigger value="design" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Design</TabsTrigger>
-              <TabsTrigger value="marketing" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Marketing</TabsTrigger>
               <TabsTrigger value="finance" className="data-[state=active]:bg-gray-800 data-[state=active]:text-white dark:data-[state=active]:bg-gray-700">Finance</TabsTrigger>
             </TabsList>
             
