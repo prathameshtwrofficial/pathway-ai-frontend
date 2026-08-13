@@ -88,6 +88,7 @@ cd backend && npm start  # Backend: http://localhost:3000
 - **Prathamesh Tiwari** - Project Lead & Full-Stack Developer
 - **Kunal Mishra** - Frontend Developer & UI/UX Designer
 - **Sumit Mishra** - Backend Developer & AI/ML Engineer
+- **Heet Rakte** - Frontend Developer
 
 ---
 
